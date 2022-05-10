@@ -8,7 +8,7 @@ import cupy.linalg as clg
 from scipy import linalg as slg
 
 import matplotlib.pyplot as plt
-from src.utils import add_colorbar
+from utils import add_colorbar
 
 import itertools
 
@@ -16,7 +16,7 @@ from pathlib import Path
 import pickle as pkl
 
 import networkx as netx
-
+from sys import argv
 from os import listdir
 from os.path import isfile, join
 
@@ -407,32 +407,33 @@ def main():
     plot_charge_per_layer()
 
 
-def abid_main():
+def abid_main(m):
     half_model = True
     other_half = True
 
-    mass = [-4, -3.75, -3.5, -3.25, -2.75, -2.5, -2.25, -2.0, -1.75, -1.5, -1.25, -0.75, -0.5, -0.25, 0.0, 0.25, 0.5,
-            0.75, 1.25, 1.5, 1.75, 2.0, 2.25, 2.5, 2.75, 3.25, 3.5, 3.75, 4.0]
-    # mass = [2, ]
+    mass = [m, ]
 
     phs_mass = []
     for m in mass:
         phs_mass.append(np.min(np.abs((m - 3, m - 1, m + 1, m + 3))))
 
-    nz = 16
-    nx = 16
+    nz = 20
+    nx = 20
 
     for ii in range(len(mass)):
-        calculate_disclination_rho(nz, nx, mass[ii], phs_mass[ii], half_model, other_half, fname='half_model_abid_run_'
-                                                                                                 + f'{ii}')
+        print("calculating disclination_rho for mass = ", mass[ii])
+        fname = 'model_half_{}_other_{}_mass_{}'.format(half_model, other_half, m)
+        calculate_disclination_rho(nz, nx, mass[ii], phs_mass[ii], half_model, other_half, fname=fname)
 
-    plot_disclination_rho('bottom')
-    plot_charge_per_layer()
+    #plot_disclination_rho('bottom')
+    #plot_charge_per_layer()
 
 
 if __name__ == '__main__':
-    plot_q_vs_mass("20x")
-    # abid_main()
+    print("running abid_main")
+    m = float(argv[1])
+    abid_main(m)
+    print("done running abid_main")
 
     # results, params = utils.load_results(data_dir, 'disclination_ldos')
     # ldos = results
