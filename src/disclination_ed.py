@@ -19,6 +19,7 @@ import networkx as netx
 from sys import argv
 from os import listdir
 from os.path import isfile, join
+from sys import argv
 
 # File structure
 project_src = Path(__file__).parent
@@ -113,9 +114,9 @@ def disclination_hamiltonian_blocks(nx: int, mass: float, phs_mass: float, half_
 
     if half_model:
         gamma_xy = -1j * np.dot(gamma_x, gamma_y)
-        u_4 = slg.expm(1j * pi / 4 * (gamma_xy + np.identity(4, dtype=complex)))
+        u_4 = slg.expm(1j * pi / 4 * (gamma_xy + sigma_factor * np.identity(4, dtype=complex)))
 
-        h_onsite = mass * gamma_0
+        h_onsite = sigma_factor * mass * gamma_0
         h_phs_mass = phs_mass * gamma_5
 
         h_x = 1j / 2 * gamma_x + 1 / 2 * gamma_0 * sigma_factor
@@ -175,8 +176,8 @@ def disclination_hamiltonian_blocks(nx: int, mass: float, phs_mass: float, half_
         ind_1 = norb * (nx * (ny // 2 - 1) + nx // 2 + ii)
         ind_2 = norb * (nx * (ny // 2) + nx // 2 * (1 + ii) - 1)
 
-        h00[ind_1:ind_1 + norb, ind_2:ind_2 + norb] += h_disc
-        h00[ind_2:ind_2 + norb, ind_1:ind_1 + norb] += h_disc.conj().T
+        h00[ind_1:ind_1 + norb, ind_2:ind_2 + norb] += h_disc.conj().T
+        h00[ind_2:ind_2 + norb, ind_1:ind_1 + norb] += h_disc
 
     h01 = np.kron(np.identity(n_tot, dtype=complex), h_z)
 
@@ -200,8 +201,10 @@ def calculate_disclination_rho(nz: int, nx: int, mass: float, phs_mass: float, h
     else:
         norb = 8
 
+    print('Building Hamiltonian and sending to GPU')
     h = cp.asarray(disclination_hamiltonian(nz, nx, mass, phs_mass, half_model, other_half))
 
+    print('Solving for eigenvectors and eigenvalues')
     evals, evecs = clg.eigh(h)
     evals = evals.get()
     evecs = evecs.get()
@@ -332,7 +335,7 @@ def plot_charge_per_layer(data_fname='ed_disclination_ldos', save=True, fig_fnam
     plt.show()
 
 
-def plot_q_vs_mass(data_folder_name: str, save=True, fig_fname="q_vs_mass"):
+def plot_q_vs_mass(data_folder_name: str, mod=True, save=True, fig_fname="q_vs_mass"):
     half_model = False
     masses = []
     qs = []
@@ -354,12 +357,15 @@ def plot_q_vs_mass(data_folder_name: str, save=True, fig_fname="q_vs_mass"):
 
         total_charge = np.sum(data[:nz // 2])
 
-        if half_model:
-            modded_total_charge = (total_charge % (1 / 8)) * 8
-        else:
-            modded_total_charge = (total_charge % (1 / 4)) * 4
+        if mod:
+            if half_model:
+                modded_total_charge = (total_charge % (1 / 8)) * 8
+            else:
+                modded_total_charge = (total_charge % (1 / 4)) * 4
 
-        qs.append(modded_total_charge)
+            qs.append(modded_total_charge)
+        else:
+            qs.append(total_charge)
 
     qs = [x for _, x in sorted(zip(masses, qs))]
     masses.sort()
@@ -389,52 +395,110 @@ def plot_q_vs_mass(data_folder_name: str, save=True, fig_fname="q_vs_mass"):
         plt.savefig(figure_dir / (fig_fname + '.png'))
 
     plt.show()
-    print(masses)
 
 
-def main():
-    half_model = True
+def plot_q_vs_mass_halves_summed(save=True, fig_fname="q_vs_mass"):
 
-    mass = 2
-    phs_mass = 1
+    # First Half
+    masses_p = []
+    qs_p = []
 
-    nz = 16
-    nx = 16
+    data_folder_name = '20x_model_half_true_other_false'
+    filenames = [f for f in listdir(data_dir / data_folder_name) if isfile(join(data_dir / data_folder_name, f))]
 
-    # calculate_disclination_rho(nz, nx, mass, phs_mass, half_model)
+    for fname in filenames:
+        with open(data_dir / data_folder_name / fname, 'rb') as handle:
+            rho, params = pkl.load(handle)
 
-    plot_disclination_rho('bottom')
-    plot_charge_per_layer()
+        nz, nx, mass, phs_mass, half_model = params
+
+        masses_p.append(mass)
+
+        if half_model:
+            data = rho - 2
+        else:
+            data = rho - 4
+
+        total_charge = np.sum(data[:nz // 2])
 
 
-def abid_main(m):
-    half_model = False
-    other_half = False
+        qs_p.append(total_charge)
 
-    mass = [m, ]
+    qs_p = [x for _, x in sorted(zip(masses_p, qs_p))]
+    masses_p.sort()
 
-    phs_mass = []
-    for m in mass:
-        phs_mass.append(np.min(np.abs((m - 3, m - 1, m + 1, m + 3))))
+    # Second Half
+    masses_m = []
+    qs_m = []
 
-    nz = 16
-    nx = 16
+    data_folder_name = '20x_model_half_true_other_true'
+    filenames = [f for f in listdir(data_dir / data_folder_name) if isfile(join(data_dir / data_folder_name, f))]
 
-    for ii in range(len(mass)):
-        print("calculating disclination_rho for mass = ", mass[ii])
-        fname = 'model_half_{}_other_{}_mass_{}'.format(half_model, other_half, m)
-        calculate_disclination_rho(nz, nx, mass[ii], phs_mass[ii], half_model, other_half, fname=fname)
 
-    #plot_disclination_rho('bottom')
-    #plot_charge_per_layer()
+    for fname in filenames:
+        with open(data_dir / data_folder_name / fname, 'rb') as handle:
+            rho, params = pkl.load(handle)
+
+        nz, nx, mass, phs_mass, half_model = params
+
+        masses_m.append(mass)
+
+        if half_model:
+            data = rho - 2
+        else:
+            data = rho - 4
+
+        total_charge = np.sum(data[:nz // 2])
+
+        qs_m.append(total_charge)
+
+    qs_m = [x for _, x in sorted(zip(masses_m, qs_m))]
+    masses_m.sort()
+
+
+    plt.style.use(styles_dir / 'line_plot.mplstyle')
+    fig, ax = plt.subplots(figsize=(6, 4))
+
+    # ax.plot(masses, np.zeros_like(masses), 'k--')
+    ax.plot(masses_p, qs_total, 'r.')
+
+    for m in [-3, -1, 1, 3]:
+        plt.axvline(x=m, color='k', linewidth=2, linestyle='--')
+
+    ax.set_ylabel(r'$\rho(z)$ (e)')
+    ax.set_ylabel(r'$Q_0$')
+
+    ax.set_xlabel(r'$M$')
+    ax.set_xticks((-3, -1, 0, 1, 3))
+
+    ax.set_yticks((-0.25, 0, 0.25))
+
+    plt.tight_layout()
+
+    if save:
+        plt.savefig(figure_dir / (fig_fname + '.pdf'))
+        plt.savefig(figure_dir / (fig_fname + '.png'))
+
+    plt.show()
+
+
+def main(nx: int, nz: int, mass: float, half_model=True, other_half=False):
+
+    phs_mass = np.min(np.abs((mass - 3, mass - 1, mass + 1, mass + 3)))
+
+    print("Calculating disclination_rho for mass = ", mass)
+
+    fname = 'model_half_{}_other_{}_mass_{}'.format(half_model, other_half, mass)
+
+    calculate_disclination_rho(nz, nx, mass, phs_mass, half_model, other_half, fname)
 
 
 if __name__ == '__main__':
-    print("running abid_main")
-    m = float(argv[1])
-    abid_main(m)
-    print("done running abid_main")
-
-    # results, params = utils.load_results(data_dir, 'disclination_ldos')
-    # ldos = results
-    # nx, mass, phs_mass, energy_axis, eta = params
+    # nx = int(argv[1])
+    # nz = int(argv[2])
+    # mass = float(argv[3])
+    # half_model = bool(argv[4])
+    # other_half = bool(argv[5])
+    print('Running main')
+    main(int(argv[1]), int(argv[2]), float(argv[3]), bool(argv[4]), bool(argv[5]))
+    print('Done running main')
