@@ -8,7 +8,7 @@ import cupy.linalg as clg
 from scipy import linalg as slg
 
 import matplotlib.pyplot as plt
-from utils import add_colorbar
+from .utils import add_colorbar
 
 from pathlib import Path
 import pickle as pkl
@@ -272,22 +272,24 @@ def plot_disclination_rho(half='bottom', data_fname='ed_disclination_ldos', save
     fig, ax = plt.subplots(figsize=(6, 4))
 
     marker_scale = 250
-    im = ax.scatter(x, y, s=marker_scale * np.abs(normalized_data), c=data, cmap='bwr', marker='o', alpha=0.7,
-                    vmin=-vmax, vmax=vmax)
+    im = ax.scatter(x, y, s=marker_scale * np.abs(normalized_data), c=data, cmap='autumn_r', marker='o', alpha=0.7,
+                    vmin=0)
     ax.scatter(x, y, s=2, c='black')
     ax.set_aspect('equal')
 
     cbar = add_colorbar(im, aspect=15, pad_fraction=1.0)
-    cbar.set_label(r'$\rho$')
+    cbar.ax.set_title(r'$\rho$', size=14)
+    cbar.ax.tick_params(labelsize=14)
+    # cbar.set_ticks((-vmax, 0, vmax))
 
     ax.margins(x=0.2)
 
-    if half_model:
-        ax.set_title(r'$Q = {:.4f}$, '.format(total_charge) + r'$Q_{16}$'
-                     + r'$ = {:.2f}$ (e/16)'.format(modded_total_charge))
-    else:
-        ax.set_title(r'$Q = {:.4f}, $'.format(total_charge) + r'$Q_{8}$'
-                     + r'$ = {:.2f}$ (e/8)'.format(modded_total_charge))
+    # if half_model:
+    #     ax.set_title(r'$Q = {:.4f}$, '.format(total_charge) + r'$Q_{16}$'
+    #                  + r'$ = {:.2f}$ (e/16)'.format(modded_total_charge))
+    # else:
+    #     ax.set_title(r'$Q = {:.4f}, $'.format(total_charge) + r'$Q_{8}$'
+    #                  + r'$ = {:.2f}$ (e/8)'.format(modded_total_charge))
 
     plt.axis('off')
     plt.tight_layout()
@@ -299,7 +301,7 @@ def plot_disclination_rho(half='bottom', data_fname='ed_disclination_ldos', save
     plt.show()
 
 
-def plot_charge_per_layer(data_fname='ed_disclination_ldos', save=True, fig_fname='ed_disclination_rho_z'):
+def plot_charge_per_layer(ylim=None, data_fname='ed_disclination_ldos', save=True, fig_fname='ed_disclination_rho_z'):
     with open(data_dir / (data_fname + '.pickle'), 'rb') as handle:
         rho, params = pkl.load(handle)
 
@@ -315,12 +317,15 @@ def plot_charge_per_layer(data_fname='ed_disclination_ldos', save=True, fig_fnam
     plt.style.use(styles_dir / 'line_plot.mplstyle')
     fig, ax = plt.subplots(figsize=(6, 4))
     ax.plot(np.arange(len(data)) + 1, np.zeros_like(data), 'k--')
-    ax.plot(np.arange(len(data)) + 1, data, 'r-')
+    ax.plot(np.arange(len(data)) + 1, data, 'ro-', fillstyle='none', markersize=8, markeredgewidth=2)
 
     ax.set_xticks((1, len(data) // 2, len(data)))
 
-    ax.set_ylabel(r'$\rho(z)$ (e)')
+    ax.set_ylabel(r'$Q(z)$ (e)')
     ax.set_xlabel(r'$z$')
+
+    if ylim is not None:
+        ax.set_ylim((-ylim, ylim))
 
     plt.tight_layout()
 

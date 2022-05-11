@@ -9,7 +9,15 @@ from numba import njit
 import matplotlib.pyplot as plt
 from mpl_toolkits import axes_grid1
 
+from pathlib import Path
 import pickle as pkl
+
+# File structure
+project_src = Path(__file__).parent
+project_root = project_src.parent
+styles_dir = project_root / 'matplotlib_styles'
+data_dir = project_root / 'data'
+figure_dir = project_root / 'figures'
 
 
 ##############
@@ -35,7 +43,7 @@ def high_symmetry_lines(dk: float):
     y = (0, pi)
     m = (pi, pi)
 
-    hsps = (y, gamma, x, m, gamma)
+    hsps = (y, gamma, x, m)
 
     k_nodes = [0]
 
@@ -188,6 +196,6 @@ def spectral_function(g=None, ham=None, energy=None, eta=None) -> np.ndarray:
 
 
 # Data Utils
-def load_results(data_dir, data_fname):
+def load_results(data_fname):
     with open(data_dir / (data_fname + '.pickle'), 'rb') as handle:
         return pkl.load(handle)
