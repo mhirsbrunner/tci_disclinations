@@ -15,5 +15,5 @@ module purge
 module load cuda gcc anaconda3
 module list  
 echo "job is starting on `hostname`"
-srun python src/disclination_ed.py $m
+srun python src/disclination_ed.py $nx $nz $mass $half_model $other_half
 
