@@ -8,8 +8,6 @@ from src.utils import add_colorbar
 from pathlib import Path
 import pickle as pkl
 
-from tqdm import tqdm
-
 import src.utils as utils
 
 from joblib import Parallel, delayed
@@ -17,7 +15,7 @@ from joblib import Parallel, delayed
 # File structure
 project_src = Path(__file__).parent
 project_root = project_src.parent
-styles_dir = project_src / 'matplotlib_styles'
+styles_dir = project_root / 'matplotlib_styles'
 data_dir = project_root / 'data'
 figure_dir = project_root / 'figures'
 

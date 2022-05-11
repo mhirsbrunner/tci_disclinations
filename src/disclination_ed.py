@@ -10,21 +10,17 @@ from scipy import linalg as slg
 import matplotlib.pyplot as plt
 from src.utils import add_colorbar
 
-import itertools
-
 from pathlib import Path
 import pickle as pkl
 
 import networkx as netx
-from sys import argv
 from os import listdir
 from os.path import isfile, join
-from sys import argv
 
 # File structure
 project_src = Path(__file__).parent
 project_root = project_src.parent
-styles_dir = project_src / 'matplotlib_styles'
+styles_dir = project_root / 'matplotlib_styles'
 data_dir = project_root / 'data'
 figure_dir = project_root / 'figures'
 
@@ -477,24 +473,3 @@ def plot_q_vs_mass_halves_summed(save=True, fig_fname="q_vs_mass"):
         plt.savefig(figure_dir / (fig_fname + '.png'))
 
     plt.show()
-
-
-def main(nx: int, nz: int, mass: float, half_model=True, other_half=False):
-    phs_mass = np.min(np.abs((mass - 3, mass - 1, mass + 1, mass + 3)))
-
-    print("Calculating disclination_rho for mass = ", mass)
-
-    fname = 'model_half_{}_other_{}_mass_{}'.format(half_model, other_half, mass)
-
-    calculate_disclination_rho(nz, nx, mass, phs_mass, half_model, other_half, fname)
-
-
-if __name__ == '__main__':
-    # nx = int(argv[1])
-    # nz = int(argv[2])
-    # mass = float(argv[3])
-    # half_model = bool(argv[4])
-    # other_half = bool(argv[5])
-    print('Running main')
-    main(int(argv[1]), int(argv[2]), float(argv[3]), bool(argv[4]), bool(argv[5]))
-    print('Done running main')

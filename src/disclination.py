@@ -21,7 +21,7 @@ from time import time
 # File structure
 project_src = Path(__file__).parent
 project_root = project_src.parent
-styles_dir = project_src / 'matplotlib_styles'
+styles_dir = project_root / 'matplotlib_styles'
 data_dir = project_root / 'data'
 figure_dir = project_root / 'figures'
 
