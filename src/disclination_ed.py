@@ -8,7 +8,7 @@ import cupy.linalg as clg
 from scipy import linalg as slg
 
 import matplotlib.pyplot as plt
-from src.utils import add_colorbar
+from utils import add_colorbar
 
 import itertools
 
@@ -16,7 +16,7 @@ from pathlib import Path
 import pickle as pkl
 
 import networkx as netx
-
+from sys import argv
 from os import listdir
 from os.path import isfile, join
 from sys import argv
@@ -421,6 +421,7 @@ def plot_q_vs_mass_halves_summed(save=True, fig_fname="q_vs_mass"):
 
         total_charge = np.sum(data[:nz // 2])
 
+
         qs_p.append(total_charge)
 
     qs_p = [x for _, x in sorted(zip(masses_p, qs_p))]
@@ -432,6 +433,7 @@ def plot_q_vs_mass_halves_summed(save=True, fig_fname="q_vs_mass"):
 
     data_folder_name = '20x_model_half_true_other_true'
     filenames = [f for f in listdir(data_dir / data_folder_name) if isfile(join(data_dir / data_folder_name, f))]
+
 
     for fname in filenames:
         with open(data_dir / data_folder_name / fname, 'rb') as handle:
@@ -453,7 +455,6 @@ def plot_q_vs_mass_halves_summed(save=True, fig_fname="q_vs_mass"):
     qs_m = [x for _, x in sorted(zip(masses_m, qs_m))]
     masses_m.sort()
 
-    qs_total = [a + b for a, b in zip(qs_p, qs_m)]
 
     plt.style.use(styles_dir / 'line_plot.mplstyle')
     fig, ax = plt.subplots(figsize=(6, 4))
