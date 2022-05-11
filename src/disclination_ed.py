@@ -8,7 +8,7 @@ import cupy.linalg as clg
 from scipy import linalg as slg
 
 import matplotlib.pyplot as plt
-from src.utils import add_colorbar
+from utils import add_colorbar
 
 import itertools
 
