@@ -7,8 +7,8 @@
 #SBATCH --partition=gpuA40x4      # <- or one of: gpuA100x4 gpuA40x4 gpuA100x8 gpuMI100x8
 #SBATCH --account=bbhg-delta-gpu
 #SBATCH --time=01:00:00      # hh:mm:ss for the job
-#SBATCH --mail-user=hrsbrnn2@illinois.edu
-#SBATCH --mail-type="END"
+##SBATCH --mail-user=hrsbrnn2@illinois.edu
+##SBATCH --mail-type="END"
 
  
 module purge 

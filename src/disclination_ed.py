@@ -408,8 +408,8 @@ def main():
 
 
 def abid_main(m):
-    half_model = True
-    other_half = True
+    half_model = False
+    other_half = False
 
     mass = [m, ]
 
@@ -417,8 +417,8 @@ def abid_main(m):
     for m in mass:
         phs_mass.append(np.min(np.abs((m - 3, m - 1, m + 1, m + 3))))
 
-    nz = 20
-    nx = 20
+    nz = 16
+    nx = 16
 
     for ii in range(len(mass)):
         print("calculating disclination_rho for mass = ", mass[ii])
