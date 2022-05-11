@@ -1,6 +1,6 @@
 import numpy as np
 import numpy.linalg as nlg
-from numpy import pi
+from numpy import pi, ndarray
 
 import cupy as cp
 import cupy.linalg as clg
@@ -8,7 +8,7 @@ import cupy.linalg as clg
 from scipy import linalg as slg
 
 import matplotlib.pyplot as plt
-from utils import add_colorbar
+from src.utils import add_colorbar
 
 import itertools
 
@@ -176,8 +176,8 @@ def disclination_hamiltonian_blocks(nx: int, mass: float, phs_mass: float, half_
         ind_1 = norb * (nx * (ny // 2 - 1) + nx // 2 + ii)
         ind_2 = norb * (nx * (ny // 2) + nx // 2 * (1 + ii) - 1)
 
-        h00[ind_1:ind_1 + norb, ind_2:ind_2 + norb] += h_disc.conj().T
-        h00[ind_2:ind_2 + norb, ind_1:ind_1 + norb] += h_disc
+        h00[ind_1:ind_1 + norb, ind_2:ind_2 + norb] += h_disc
+        h00[ind_2:ind_2 + norb, ind_1:ind_1 + norb] += h_disc.conj().T
 
     h01 = np.kron(np.identity(n_tot, dtype=complex), h_z)
 
@@ -398,7 +398,6 @@ def plot_q_vs_mass(data_folder_name: str, mod=True, save=True, fig_fname="q_vs_m
 
 
 def plot_q_vs_mass_halves_summed(save=True, fig_fname="q_vs_mass"):
-
     # First Half
     masses_p = []
     qs_p = []
@@ -419,8 +418,7 @@ def plot_q_vs_mass_halves_summed(save=True, fig_fname="q_vs_mass"):
         else:
             data = rho - 4
 
-        total_charge = np.sum(data[:nz // 2])
-
+        total_charge: ndarray = np.sum(data[:nz // 2])
 
         qs_p.append(total_charge)
 
@@ -433,7 +431,6 @@ def plot_q_vs_mass_halves_summed(save=True, fig_fname="q_vs_mass"):
 
     data_folder_name = '20x_model_half_true_other_true'
     filenames = [f for f in listdir(data_dir / data_folder_name) if isfile(join(data_dir / data_folder_name, f))]
-
 
     for fname in filenames:
         with open(data_dir / data_folder_name / fname, 'rb') as handle:
@@ -455,11 +452,11 @@ def plot_q_vs_mass_halves_summed(save=True, fig_fname="q_vs_mass"):
     qs_m = [x for _, x in sorted(zip(masses_m, qs_m))]
     masses_m.sort()
 
+    qs_total = [a + b for a, b in zip(qs_p, qs_m)]
 
     plt.style.use(styles_dir / 'line_plot.mplstyle')
     fig, ax = plt.subplots(figsize=(6, 4))
 
-    # ax.plot(masses, np.zeros_like(masses), 'k--')
     ax.plot(masses_p, qs_total, 'r.')
 
     for m in [-3, -1, 1, 3]:
@@ -483,7 +480,6 @@ def plot_q_vs_mass_halves_summed(save=True, fig_fname="q_vs_mass"):
 
 
 def main(nx: int, nz: int, mass: float, half_model=True, other_half=False):
-
     phs_mass = np.min(np.abs((mass - 3, mass - 1, mass + 1, mass + 3)))
 
     print("Calculating disclination_rho for mass = ", mass)
