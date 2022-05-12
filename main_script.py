@@ -1,4 +1,4 @@
-import src.disclination_ed as disc
+import src.disclination as disc
 import numpy as np
 from sys import argv
 

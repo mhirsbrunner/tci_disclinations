@@ -1,11 +1,3 @@
-# Data and Figures
-data/
-figures/
-archive/
-
-# Misc Files
-disclination2D.nb
-Mixed_Charge_Geometric_Responses_in_3D_TCIs (2).pdf
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

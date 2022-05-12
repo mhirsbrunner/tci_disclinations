@@ -1,21 +1,21 @@
-import src.disclination_ed as disc_ed
-import src.utils as utils
-from importlib import reload
-
-# %% reloading
-reload(disc_ed)
-reload(utils)
+import src.plotting as plt
 
 # %% Trivial q vs z
 data_fname = 'from_cluster/model_half_False_other_False_mass_4.0'
-results, params = utils.load_results(data_fname)
-
 fig_fname = 'publishing/full_model_q_vs_z_trivial'
-disc_ed.plot_charge_per_layer(data_fname=data_fname, save=True, ylim=0.4, fig_fname=fig_fname)
+plt.plot_charge_per_layer(data_fname=data_fname, save=True, ylim=0.4, fig_fname=fig_fname)
 
 # %% Trivial q vs z
 data_fname = 'from_cluster/model_half_False_other_False_mass_2.0'
-results, params = utils.load_results(data_fname)
-
 fig_fname = 'publishing/full_model_q_vs_z_topological'
-disc_ed.plot_charge_per_layer(data_fname=data_fname, save=True, ylim=0.4, fig_fname=fig_fname)
+plt.plot_charge_per_layer(data_fname=data_fname, save=True, ylim=0.4, fig_fname=fig_fname)
+
+# %% Topological Charge Density
+data_fname = 'from_cluster/model_half_False_other_False_mass_2.0'
+fig_fname = 'publishing/full_model_charge_density_topological'
+plt.plot_disclination_rho('bottom', data_fname=data_fname, save=True, fig_fname=fig_fname)
+
+# %% Full model charge vs mass
+data_folder = 'archive/from_cluster'
+fig_fname = 'publishing/full_model_charge_vs_mass'
+plt.plot_q_vs_mass(data_folder, False, False, mod=True, save=True, fig_fname=fig_fname)
