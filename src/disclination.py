@@ -156,19 +156,26 @@ def disclination_hamiltonian(nz: int, nx: int, mass: float, phs_mass: float, hal
 
 
 def calculate_disclination_rho(nz: int, nx: int, mass: float, phs_mass: float, half_model=False, other_half=False,
-                               fname='ed_disclination_ldos'):
+                               use_gpu=False, fname='ed_disclination_ldos'):
     if half_model:
         norb = 4
     else:
         norb = 8
 
-    print('Building Hamiltonian and sending to GPU')
-    h = cp.asarray(disclination_hamiltonian(nz, nx, mass, phs_mass, half_model, other_half))
+    if use_gpu:
+        print('Building Hamiltonian and sending to GPU')
+        h = cp.asarray(disclination_hamiltonian(nz, nx, mass, phs_mass, half_model, other_half))
 
-    print('Solving for eigenvectors and eigenvalues')
-    evals, evecs = clg.eigh(h)
-    evals = evals.get()
-    evecs = evecs.get()
+        print('Solving for eigenvectors and eigenvalues')
+        evals, evecs = nlg.eigh(h)
+    else:
+        print('Building Hamiltonian')
+        h = disclination_hamiltonian(nz, nx, mass, phs_mass, half_model, other_half)
+
+        print('Solving for eigenvectors and eigenvalues')
+        evals, evecs = clg.eigh(h)
+        evals = evals.get()
+        evecs = evecs.get()
 
     rho = np.zeros((nz, (3 * nx * nx) // 4))
 

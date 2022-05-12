@@ -10,7 +10,7 @@ def main(nx: int, nz: int, mass: float, half_model=True, other_half=False):
 
     fname = 'model_half_{}_other_{}_mass_{}'.format(half_model, other_half, mass)
 
-    disc.calculate_disclination_rho(nz, nx, mass, phs_mass, half_model, other_half, fname)
+    disc.calculate_disclination_rho(nz, nx, mass, phs_mass, half_model, other_half, use_gpu=False, fname=fname)
 
 
 if __name__ == '__main__':
