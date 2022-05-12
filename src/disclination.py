@@ -167,15 +167,15 @@ def calculate_disclination_rho(nz: int, nx: int, mass: float, phs_mass: float, h
         h = cp.asarray(disclination_hamiltonian(nz, nx, mass, phs_mass, half_model, other_half))
 
         print('Solving for eigenvectors and eigenvalues')
-        evals, evecs = nlg.eigh(h)
+        evals, evecs = clg.eigh(h)
+        evals = evals.get()
+        evecs = evecs.get()
     else:
         print('Building Hamiltonian')
         h = disclination_hamiltonian(nz, nx, mass, phs_mass, half_model, other_half)
 
         print('Solving for eigenvectors and eigenvalues')
-        evals, evecs = clg.eigh(h)
-        evals = evals.get()
-        evecs = evecs.get()
+        evals, evecs = nlg.eigh(h)
 
     rho = np.zeros((nz, (3 * nx * nx) // 4))
 

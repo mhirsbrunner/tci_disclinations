@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bd204b8d-d8aa-4d5c-a773-0647fa2f349e" name="Changes" comment="Committing unversioned files, mostly data and figures">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="bd204b8d-d8aa-4d5c-a773-0647fa2f349e" name="Changes" comment="Modified scripts and calculation functions to allow a choice between CPU and GPU computing. Needed this to allow use on both the DELTA cluster and the Campus Cluster">
+      <change beforePath="$PROJECT_DIR$/src/disclination.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/disclination.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,6 +103,7 @@
       <updated>1652312337215</updated>
       <workItem from="1652312339228" duration="2909000" />
       <workItem from="1652321658596" duration="25000" />
+      <workItem from="1652321873115" duration="353000" />
     </task>
     <task id="LOCAL-00001" summary="Restructured the project, moved a lot of unused code to an archive file">
       <created>1652321297616</created>
@@ -118,7 +119,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652321458614</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Modified scripts and calculation functions to allow a choice between CPU and GPU computing. Needed this to allow use on both the DELTA cluster and the Campus Cluster">
+      <created>1652322109730</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1652322109730</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,7 +147,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Restructured the project, moved a lot of unused code to an archive file" />
     <MESSAGE value="Committing unversioned files, mostly data and figures" />
-    <option name="LAST_COMMIT_MESSAGE" value="Committing unversioned files, mostly data and figures" />
+    <MESSAGE value="Modified scripts and calculation functions to allow a choice between CPU and GPU computing. Needed this to allow use on both the DELTA cluster and the Campus Cluster" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modified scripts and calculation functions to allow a choice between CPU and GPU computing. Needed this to allow use on both the DELTA cluster and the Campus Cluster" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
