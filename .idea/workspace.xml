@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="bd204b8d-d8aa-4d5c-a773-0647fa2f349e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/data/model_half_True_other_True_mass_2.0.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figures/full_model_charge_vs_mass.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figures/full_model_charge_vs_mass.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figures/full_model_q_vs_z_topological.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figures/full_model_q_vs_z_topological.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/plotting.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/other.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/tci_disclinations.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/tci_disclinations.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace (mark-ThinkPad-X1-Yoga-4th's conflicted copy 2022-04-04).xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mixed_Charge_Geometric_Responses_in_3D_TCIs (2).pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/archive/Disclination.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/archive/PolCalculator.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/archive/gpu_inv.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/archive/kernel_polynomial_method.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/archive/kwant_main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/archive/sancho.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/10x/half_model_abid_mass_-0.25.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/10x/half_model_abid_mass_-0.5.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/10x/half_model_abid_mass_-0.75.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/10x/half_model_abid_mass_-1.25.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/10x/half_model_abid_mass_-1.5.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/10x/half_model_abid_mass_-1.75.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/10x/half_model_abid_mass_-2.0.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/10x/half_model_abid_mass_-2.25.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/10x/half_model_abid_mass_-2.5.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/10x/half_model_abid_mass_-2.75.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/10x/half_model_abid_mass_-3.25.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/10x/half_model_abid_mass_-3.5.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/10x/half_model_abid_mass_-3.75.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/10x/half_model_abid_mass_-4.0.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/10x/half_model_abid_mass_0.0.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/10x/half_model_abid_mass_0.25.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/10x/half_model_abid_mass_0.5.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/10x/half_model_abid_mass_0.75.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/10x/half_model_abid_mass_1.25.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/10x/half_model_abid_mass_1.5.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/10x/half_model_abid_mass_1.75.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/10x/half_model_abid_mass_2.0.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/10x/half_model_abid_mass_2.25.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/10x/half_model_abid_mass_2.5.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/10x/half_model_abid_mass_2.75.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/10x/half_model_abid_mass_3.25.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/10x/half_model_abid_mass_3.5.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/10x/half_model_abid_mass_3.75.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/10x/half_model_abid_mass_4.0.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_-0.1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_-0.2.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_-0.3.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_-0.4.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_-0.5.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_-0.6.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_-0.7.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_-0.8.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_-0.9.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_-1.1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_-1.2.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_-1.3.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_-1.4.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_-1.5.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_-1.6.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_-1.7.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_-1.8.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_-1.9.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_-2.0.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_-2.1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_-2.2.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_-2.3.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_-2.4.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_-2.5.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_-2.6.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_-2.7.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_-2.8.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_-2.9.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_-3.1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_-3.2.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_-3.3.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_-3.4.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_-3.5.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_-3.6.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_-3.7.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_-3.8.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_-3.9.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_-4.0.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_0.0.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_0.1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_0.2.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_0.3.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_0.4.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_0.5.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_0.6.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_0.7.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_0.8.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_0.9.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_1.1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_1.2.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_1.3.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_1.4.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_1.5.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_1.6.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_1.7.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_1.8.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_1.9.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_2.0.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_2.1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_2.2.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_2.3.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_2.4.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_2.5.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_2.6.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_2.7.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_2.8.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_2.9.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_3.1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_3.2.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_3.3.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_3.4.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_3.5.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_3.6.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_3.7.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_3.8.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_3.9.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_hf_of/model_half_False_other_False_mass_4.0.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_-0.1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_-0.2.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_-0.3.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_-0.4.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_-0.5.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_-0.6.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_-0.7.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_-0.8.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_-0.9.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_-1.1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_-1.2.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_-1.3.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_-1.4.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_-1.5.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_-1.6.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_-1.7.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_-1.8.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_-1.9.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_-2.0.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_-2.1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_-2.2.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_-2.3.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_-2.4.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_-2.5.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_-2.6.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_-2.7.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_-2.8.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_-2.9.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_-3.1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_-3.2.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_-3.3.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_-3.4.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_-3.5.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_-3.6.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_-3.7.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_-3.8.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_-3.9.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_-4.0.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_0.0.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_0.1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_0.2.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_0.3.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_0.4.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_0.5.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_0.6.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_0.7.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_0.8.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_0.9.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_1.1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_1.2.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_1.3.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_1.4.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_1.5.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_1.6.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_1.7.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_1.8.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_1.9.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_2.0.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_2.1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_2.2.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_2.3.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_2.4.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_2.5.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_2.6.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_2.7.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_2.8.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_2.9.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_3.1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_3.2.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_3.3.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_3.4.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_3.5.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_3.6.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_3.7.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_3.8.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_3.9.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20x_other_half/model_half_True_other_True_mass_4.0.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dos_open_z.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_-0.1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_-0.2.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_-0.3.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_-0.4.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_-0.5.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_-0.6.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_-0.7.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_-0.8.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_-0.9.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_-1.1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_-1.2.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_-1.3.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_-1.4.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_-1.5.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_-1.6.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_-1.7.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_-1.8.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_-1.9.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_-2.0.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_-2.1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_-2.2.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_-2.3.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_-2.4.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_-2.5.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_-2.6.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_-2.7.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_-2.8.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_-2.9.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_-3.1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_-3.2.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_-3.3.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_-3.4.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_-3.5.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_-3.6.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_-3.7.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_-3.8.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_-3.9.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_-4.0.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_0.0.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_0.1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_0.2.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_0.3.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_0.4.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_0.5.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_0.6.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_0.7.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_0.8.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_0.9.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_1.1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_1.2.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_1.3.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_1.4.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_1.5.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_1.6.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_1.7.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_1.8.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_1.9.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_2.0.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_2.1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_2.2.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_2.3.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_2.4.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_2.5.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_2.6.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_2.7.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_2.8.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_2.9.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_3.1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_3.2.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_3.3.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_3.4.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_3.5.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_3.6.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_3.7.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_3.8.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_3.9.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/from_cluster/model_half_False_other_False_mass_4.0.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/other/disclination_ldos.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/other/dos_open_z.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/other/ed_disclination_ldos.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/other/half_model_20_cubed_0.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/other/half_model_abid_run_0.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/other/surf_dos.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/other/trivial_dos_open_z.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/disclination2D.nb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/16x_M_2.0_full_model_charge_density_bottom_half.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/16x_M_2.0_full_model_charge_density_bottom_half.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/16x_M_2.0_full_model_q_vs_z.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/16x_M_2.0_full_model_q_vs_z.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/16x_M_4.0_full_model_q_vs_z.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/16x_M_4.0_full_model_q_vs_z.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/16z_M_-2.0_PHS_M_0.0_open_z_dos.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/16z_M_-2.0_PHS_M_0.0_open_z_dos.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/16z_M_-2.0_PHS_M_0.5_open_z_dos.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/16z_M_-2.0_PHS_M_0.5_open_z_dos.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/disclination_dos.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/disclination_dos.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/disclination_rho.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/disclination_rho.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/dos_open_z.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/dos_open_z.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/ed_disclination_rho.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/ed_disclination_rho.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/ed_disclination_rho_z.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/ed_disclination_rho_z.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/publishing/16x_M_2.0_full_model_charge_density_bottom_half.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/publishing/16z_M_-2.0_PHS_M_0.0_open_z_dos.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/publishing/16z_M_-2.0_PHS_M_0.5_open_z_dos.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/publishing/full_model_q_vs_z_topological.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/figures/publishing/full_model_q_vs_z_topological.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/publishing/full_model_q_vs_z_topological.png" beforeDir="false" afterPath="$PROJECT_DIR$/figures/publishing/full_model_q_vs_z_topological.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/publishing/full_model_q_vs_z_trivial.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/figures/publishing/full_model_q_vs_z_trivial.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/publishing/full_model_q_vs_z_trivial.png" beforeDir="false" afterPath="$PROJECT_DIR$/figures/publishing/full_model_q_vs_z_trivial.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/q_vs_mass.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/q_vs_mass.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/surf_dos.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/surf_dos.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/tci_disclination_figures.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/test.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/test.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cp_green_function_utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/disclination.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/disclination.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/disclination_ed.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/plots_for_the_paper.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/plots_for_the_paper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/recursealgblock3d_gpu.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/surface_gf_dos.py" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="292XpTjPDZVoV1nejNEn5fQ4uQO" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Mark\Dropbox\Hughes Group Research\Projects\Geometry-Charge Response in 3D TCIs\tci_disclinations\data\archive" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="tci_disclinations" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="plots_for_the_paper" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="tci_disclinations" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/plots_for_the_paper.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.plots_for_the_paper" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bd204b8d-d8aa-4d5c-a773-0647fa2f349e" name="Changes" comment="" />
+      <created>1652312337215</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1652312337215</updated>
+      <workItem from="1652312339228" duration="2455000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/plotting.py</url>
+          <line>166</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/tci_disclinations$plots_for_the_paper.coverage" NAME="plots_for_the_paper Coverage Results" MODIFIED="1652320933449" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+  </component>
+</project>

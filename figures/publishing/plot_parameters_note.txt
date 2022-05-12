@@ -1,0 +1,2 @@
+Open Z DOS PHS: nz = 16, M =-2.0, M_PHS = 0
+Open Z DOS : nz = 16, M =-2.0, M_PHS = 0.5
