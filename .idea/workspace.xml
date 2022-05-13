@@ -4,100 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bd204b8d-d8aa-4d5c-a773-0647fa2f349e" name="Changes" comment="Modified scripts and calculation functions to allow a choice between CPU and GPU computing. Needed this to allow use on both the DELTA cluster and the Campus Cluster">
-      <change afterPath="$PROJECT_DIR$/cc_job.slurm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_-0.1.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_-0.2.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_-0.3.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_-0.4.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_-0.5.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_-0.6.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_-0.7.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_-0.8.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_-0.9.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_-1.1.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_-1.2.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_-1.3.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_-1.4.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_-1.5.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_-1.6.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_-1.7.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_-1.8.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_-1.9.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_-2.0.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_-2.1.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_-2.2.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_-2.3.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_-2.4.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_-2.5.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_-2.6.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_-2.7.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_-2.8.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_-2.9.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_-3.1.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_-3.2.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_-3.3.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_-3.4.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_-3.5.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_-3.6.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_-3.7.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_-3.8.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_-3.9.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_-4.0.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_0.0.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_0.1.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_0.2.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_0.3.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_0.4.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_0.5.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_0.6.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_0.7.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_0.8.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_0.9.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_1.1.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_1.2.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_1.3.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_1.4.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_1.5.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_1.6.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_1.7.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_1.8.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_1.9.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_2.0.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_2.1.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_2.2.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_2.3.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_2.4.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_2.5.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_2.6.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_2.7.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_2.8.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_2.9.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_3.1.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_3.2.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_3.3.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_3.4.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_3.5.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_3.6.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_3.7.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_3.8.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_3.9.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/16x_model_half_false_other_false/model_half_False_other_False_mass_4.0.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/20220513-113121-model_half_True_other_False_mass_2.0.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/20220513-113233-model_half_True_other_True_mass_2.0.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/20220513-114107-model_half_True_other_False_mass_-2.0.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/20220513-114210-model_half_True_other_True_mass_-2.0.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/20220513-122256-model_half_False_other_False_mass_2.0.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/20220513-122740-model_half_False_other_False_mass_2.0.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/20220513-123149-model_half_False_other_False_mass_2.0.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/20220513-123509-model_half_False_other_False_mass_2.0.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/20220513-123627-model_half_False_other_False_nnn_True_mass_2.0.pickle" afterDir="false" />
+    <list default="true" id="bd204b8d-d8aa-4d5c-a773-0647fa2f349e" name="Changes" comment="Added SBATCH files for the campus cluster&#10;&#10;Added next-nearest neighbor hoppings option for the full model">
+      <change afterPath="$PROJECT_DIR$/data/20220513-144740-model_half_False_other_False_nnn_False_mass_-2.0.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/20220513-144940-model_half_False_other_False_nnn_True_mass_-2.0.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figures/ed_disclination_rho.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figures/ed_disclination_rho.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/model_half_True_other_True_mass_2.0.pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/job.slurm" beforeDir="false" afterPath="$PROJECT_DIR$/job.slurm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run.sh" beforeDir="false" afterPath="$PROJECT_DIR$/run.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/disclination.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/disclination.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/plotting.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/plotting.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,7 +114,7 @@
       <workItem from="1652321658596" duration="25000" />
       <workItem from="1652321873115" duration="726000" />
       <workItem from="1652406200676" duration="3000" />
-      <workItem from="1652456059396" duration="7990000" />
+      <workItem from="1652456059396" duration="12655000" />
     </task>
     <task id="LOCAL-00001" summary="Restructured the project, moved a lot of unused code to an archive file">
       <created>1652321297616</created>
@@ -230,7 +144,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652322268098</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added SBATCH files for the campus cluster&#10;&#10;Added next-nearest neighbor hoppings option for the full model">
+      <created>1652465031152</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1652465031152</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -252,14 +173,15 @@
     <MESSAGE value="Restructured the project, moved a lot of unused code to an archive file" />
     <MESSAGE value="Committing unversioned files, mostly data and figures" />
     <MESSAGE value="Modified scripts and calculation functions to allow a choice between CPU and GPU computing. Needed this to allow use on both the DELTA cluster and the Campus Cluster" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modified scripts and calculation functions to allow a choice between CPU and GPU computing. Needed this to allow use on both the DELTA cluster and the Campus Cluster" />
+    <MESSAGE value="Added SBATCH files for the campus cluster&#10;&#10;Added next-nearest neighbor hoppings option for the full model" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added SBATCH files for the campus cluster&#10;&#10;Added next-nearest neighbor hoppings option for the full model" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/src/plotting.py</url>
-          <line>112</line>
+          <line>115</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>

@@ -47,7 +47,9 @@ def disclination_graph(nx: int):
 
 def plot_disclination_rho(half='bottom', data_fname='ed_disclination_ldos', save=True, fig_fname='ed_disclination_rho'):
     results, params = utils.load_results(data_fname)
-    nz, nx, mass, phs_mass, half_model, other_half = params
+    # nz, nx, mass, phs_mass, half_model, other_half = params
+    nz, nx, mass, phs_mass, half_model = params
+    print(mass)
 
     if half.lower() == 'bottom':
         rho = np.sum(results[:nz // 2], axis=0)
@@ -56,6 +58,7 @@ def plot_disclination_rho(half='bottom', data_fname='ed_disclination_ldos', save
     else:
         raise ValueError('Input "half" must specify "bottom" or "top" half of the system over which to sum the '
                          'density of states')
+    print((rho.sum() % (1 / 4)) * 4)
 
     # Subtract background charge and calculate the total charge (mod 8)
     if half_model:
@@ -80,14 +83,14 @@ def plot_disclination_rho(half='bottom', data_fname='ed_disclination_ldos', save
     fig, ax = plt.subplots(figsize=(6, 4))
 
     marker_scale = 250
-    im = ax.scatter(x, y, s=marker_scale * np.abs(normalized_data), c=data, cmap='autumn_r', marker='o', alpha=0.7,
-                    vmin=0)
+    im = ax.scatter(x, y, s=marker_scale * np.abs(normalized_data), c='red', marker='o',
+                    alpha=np.abs(normalized_data) * 0.9, vmin=0)
     ax.scatter(x, y, s=2, c='black')
     ax.set_aspect('equal')
 
-    cbar = utils.add_colorbar(im, aspect=15, pad_fraction=1.0)
-    cbar.ax.set_title(r'$\rho$', size=14)
-    cbar.ax.tick_params(labelsize=14)
+    # cbar = utils.add_colorbar(im, aspect=15, pad_fraction=1.0)
+    # cbar.ax.set_title(r'$|\rho|$', size=14)
+    # cbar.ax.tick_params(labelsize=14)
 
     ax.margins(x=0.2)
 

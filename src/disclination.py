@@ -153,8 +153,8 @@ def disclination_hamiltonian_blocks(nx: int, mass: float, phs_mass: float, half_
         h_xz = -1 / 4 * np.kron(gamma_0, sigma_x)
         h_yz = -1 / 4 * np.kron(gamma_0, sigma_y)
 
-        h01 += np.kron(hop_x, h_xz) + np.kron(-hop_x, h_xz)
-        h01 += np.kron(hop_y, h_yz) + np.kron(-hop_y, h_yz)
+        h01 += np.kron(hop_x, h_xz) + np.kron(-hop_x.T, h_xz)
+        h01 += np.kron(hop_y, h_yz) + np.kron(-hop_y.T, h_yz)
 
     return h00, h01
 
