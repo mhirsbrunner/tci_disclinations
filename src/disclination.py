@@ -62,7 +62,8 @@ def disclination_surface_indices(nx: int):
     return surf_sites
 
 
-def disclination_hamiltonian_blocks(nx: int, mass: float, phs_mass: float, half_model=False, other_half=False):
+def disclination_hamiltonian_blocks(nx: int, mass: float, phs_mass: float, half_model=False, other_half=False
+                                    , nnn=False):
     if nx % 2 == 1:
         nx += 1
 
@@ -85,6 +86,7 @@ def disclination_hamiltonian_blocks(nx: int, mass: float, phs_mass: float, half_
         h_z = 1j / 2 * gamma_z + 1 / 2 * gamma_0 * sigma_factor
 
         norb = 4
+
     else:
         gamma_xy = -1j * np.dot(gamma_x, gamma_y)
         u_4 = slg.expm(1j * pi / 4 * (np.kron(gamma_xy, sigma_0) + np.kron(np.identity(4, dtype=complex), sigma_z)))
@@ -140,13 +142,26 @@ def disclination_hamiltonian_blocks(nx: int, mass: float, phs_mass: float, half_
         h00[ind_1:ind_1 + norb, ind_2:ind_2 + norb] += h_disc
         h00[ind_2:ind_2 + norb, ind_1:ind_1 + norb] += h_disc.conj().T
 
+    # Z-Hopping
     h01 = np.kron(np.identity(n_tot, dtype=complex), h_z)
+
+    # NNN Stuff
+    if nnn and half_model:
+        print("Can't implement nnn hoppings in the half model.")
+    elif nnn:
+        print("Adding next-nearest neighbor hoppings to Hamiltonian")
+        h_xz = -1 / 4 * np.kron(gamma_0, sigma_x)
+        h_yz = -1 / 4 * np.kron(gamma_0, sigma_y)
+
+        h01 += np.kron(hop_x, h_xz) + np.kron(-hop_x, h_xz)
+        h01 += np.kron(hop_y, h_yz) + np.kron(-hop_y, h_yz)
 
     return h00, h01
 
 
-def disclination_hamiltonian(nz: int, nx: int, mass: float, phs_mass: float, half_model=False, other_half=False):
-    h00, h01 = disclination_hamiltonian_blocks(nx, mass, phs_mass, half_model, other_half)
+def disclination_hamiltonian(nz: int, nx: int, mass: float, phs_mass: float, half_model=False, other_half=False
+                             , nnn=False):
+    h00, h01 = disclination_hamiltonian_blocks(nx, mass, phs_mass, half_model, other_half, nnn)
 
     h = np.kron(np.identity(nz), np.array(h00))
     h += np.kron(np.diag(np.ones(nz - 1), k=1), h01)
@@ -156,7 +171,7 @@ def disclination_hamiltonian(nz: int, nx: int, mass: float, phs_mass: float, hal
 
 
 def calculate_disclination_rho(nz: int, nx: int, mass: float, phs_mass: float, half_model=False, other_half=False,
-                               use_gpu=False, fname='ed_disclination_ldos'):
+                               nnn=False, use_gpu=True, fname='ed_disclination_ldos'):
     if half_model:
         norb = 4
     else:
@@ -164,7 +179,7 @@ def calculate_disclination_rho(nz: int, nx: int, mass: float, phs_mass: float, h
 
     if use_gpu:
         print('Building Hamiltonian and sending to GPU')
-        h = cp.asarray(disclination_hamiltonian(nz, nx, mass, phs_mass, half_model, other_half))
+        h = cp.asarray(disclination_hamiltonian(nz, nx, mass, phs_mass, half_model, other_half, nnn))
 
         print('Solving for eigenvectors and eigenvalues')
         evals, evecs = clg.eigh(h)
@@ -172,7 +187,7 @@ def calculate_disclination_rho(nz: int, nx: int, mass: float, phs_mass: float, h
         evecs = evecs.get()
     else:
         print('Building Hamiltonian')
-        h = disclination_hamiltonian(nz, nx, mass, phs_mass, half_model, other_half)
+        h = disclination_hamiltonian(nz, nx, mass, phs_mass, half_model, other_half, nnn)
 
         print('Solving for eigenvectors and eigenvalues')
         evals, evecs = nlg.eigh(h)
@@ -186,7 +201,7 @@ def calculate_disclination_rho(nz: int, nx: int, mass: float, phs_mass: float, h
             rho += np.sum(temp_rho, axis=-1).real
 
     results = rho
-    params = (nz, nx, mass, phs_mass, half_model, other_half)
+    params = (nz, nx, mass, phs_mass, half_model, other_half, nnn)
     data = (results, params)
 
     with open(data_dir / (fname + '.pickle'), 'wb') as handle:

@@ -1,5 +1,5 @@
-nx=20
-nz=20
+nx=16
+nz=16
 half_model=True
 other_half=False
 nnn=False
@@ -10,5 +10,5 @@ for mass in -4. -3.9 -3.8 -3.7 -3.6 -3.5 -3.4 -3.3 -3.2 -3.1 -2.9 -2.8 -2.7 -2.6
 do
     echo $mass
     sbatch --job-name="mass_"$mass \
-    --export=ALL,nx=$nx,nz=$nz,mass=$mass,half_model=$half_model,other_half=$other_half,nnn=$nnn job.slurm
+    --export=ALL,nx=$nx,nz=$nz,mass=$mass,half_model=$half_model,other_half=$other_half,nnn=$nnn cc_job.slurm
 done
