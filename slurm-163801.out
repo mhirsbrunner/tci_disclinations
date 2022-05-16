@@ -1,0 +1,12 @@
+
+Currently Loaded Modules:
+  1) gcc/11.2.0   2) anaconda3/2021.05   3) cuda/11.6.1
+
+ 
+
+job is starting on gpub079.delta.internal.ncsa.edu
+Running main
+Calculating disclination_rho for mass =  2.2
+Building Hamiltonian and sending to GPU
+Solving for eigenvectors and eigenvalues
+Done running main. Elapsed time: 566.5390403270721 s
