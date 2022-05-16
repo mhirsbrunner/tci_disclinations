@@ -9,10 +9,10 @@ def main(nx: int, nz: int, mass: float, half_model: bool, other_half: bool, nnn:
     phs_mass = np.min(np.abs((mass - 3, mass - 1, mass + 1, mass + 3)))
 
     print("Calculating disclination_rho for mass = ", mass)
-    fname = 'model_half_{}_other_{}_nnn_{}_mass_{}'.format(half_model, other_half, nnn, mass)
+    fname = 'nx_{}_nz_{}_mass_{}_half_{}_other_{}_nnn_{}'.format(nx, nz, mass, half_model, other_half, nnn)
 
-    date = datetime.now().strftime("%Y%m%d-%H%M%S")
-    fname = date + '-' + fname
+    # date = datetime.now().strftime("%Y%m%d-%H%M%S")
+    # fname = date + '-' + fname
 
     disc.calculate_disclination_rho(nz, nx, mass, phs_mass, half_model, other_half, nnn, use_gpu=True, fname=fname)
 

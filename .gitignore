@@ -1,3 +1,7 @@
+# Manually Added
+cc_job.slurm
+cc_run.sh
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
