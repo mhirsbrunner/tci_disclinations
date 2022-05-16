@@ -137,7 +137,8 @@ def plot_charge_per_layer(data_fname='ed_disclination_ldos', save=True, fig_fnam
     plt.show()
 
 
-def plot_q_vs_mass(data_folder_name: str, half_model: bool, other_half: bool, mod=True, save=True, fig_fname="q_vs_mass"):
+def plot_q_vs_mass(data_folder_name: str, half_model: bool, other_half: bool, nnn: bool, mod=True, save=True,
+                   fig_fname="q_vs_mass"):
     if half_model:
         norb = 2
     else:
@@ -152,12 +153,10 @@ def plot_q_vs_mass(data_folder_name: str, half_model: bool, other_half: bool, mo
         with open(data_dir / data_folder_name / fname, 'rb') as handle:
             rho, params = pkl.load(handle)
 
-        nz, nx, mass, phs_mass, temp_half_model = params
-        # uncomment below when you get new data
-        # nz, nx, mass, phs_mass, temp_half_model, temp_other_half = params
-        #
-        # if not(half_model == temp_half_model and other_half == temp_other_half):
-        #     continue
+        nz, nx, mass, phs_mass, temp_half_model, temp_other_half, temp_nnn = params
+
+        if not(half_model == temp_half_model and other_half == temp_other_half and nnn == temp_nnn):
+            continue
 
         masses.append(mass)
 

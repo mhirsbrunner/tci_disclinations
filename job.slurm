@@ -9,6 +9,8 @@
 #SBATCH --time=01:00:00      # hh:mm:ss for the job
 ##SBATCH --mail-user=hrsbrnn2@illinois.edu
 ##SBATCH --mail-type="END"
+#SBATCH -e std/slurm-%j.err
+#SBATCH -o std/slurm-%j.out
 
  
 module purge 
