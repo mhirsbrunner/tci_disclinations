@@ -1,9 +1,9 @@
 # Manually Added
-/.idea/
+/.idea
 cc_job.slurm
 cc_run.sh
-/data/cluster_data/
-/data/archive/
+/data/cluster_data
+/data/archive
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -64,8 +64,8 @@ def disclination_surface_indices(nx: int):
 def disclination_hamiltonian_blocks(nx: int, mass: float, phs_mass: float, half_model=False, other_half=False
                                     , spin=None):
     if spin is not None:
-        if spin != 1 and spin !=-1:
-            raise ValueError('Spin must be either 1 or -1')
+        if spin != 1 and spin != -1 and spin != 0:
+            raise ValueError('Spin must be either -1, 0, or 1')
         elif half_model:
             raise ValueError('Cannot implement spinful half model.')
 
