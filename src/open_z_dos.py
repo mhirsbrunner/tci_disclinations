@@ -83,7 +83,7 @@ def plot_dos_open_z(data_fname='dos_open_z', save=True, fig_fname='dos_open_z', 
     fig, ax = plt.subplots(figsize=(6, 4))
 
     im = ax.imshow(dos, origin='lower', cmap="magma", aspect='auto', vmin=0, vmax=vmax)
-    utils.add_colorbar(im, aspect=15, pad_fraction=1.0)
+    # utils.add_colorbar(im, aspect=15, pad_fraction=1.0)
 
     ax.set_xticks(k_nodes)
     ax.set_xticklabels(labels)
@@ -91,7 +91,7 @@ def plot_dos_open_z(data_fname='dos_open_z', save=True, fig_fname='dos_open_z', 
     for k in k_nodes[1:-1]:
         ax.vlines(k, ymin=0, ymax=len(energy_axis) - 1, color='white', linewidth=2, linestyles='--')
 
-    ax.set_ylabel('DOS (a.u.)')
+    ax.set_ylabel('Energy)')
 
     ax.set_yticks((-1, len(energy_axis)))
     ax.set_yticklabels((energy_axis[0], energy_axis[-1]))
@@ -107,7 +107,7 @@ def plot_dos_open_z(data_fname='dos_open_z', save=True, fig_fname='dos_open_z', 
 
 def main():
     mass = -2
-    phs_mass = 0.5
+    phs_mass = 0.0
 
     nz = 16
     dk = 0.05
@@ -121,7 +121,7 @@ def main():
     energy_axis = np.linspace(e_min, e_max, e_pts)
 
     calculate_dos_open_z(nz, dk, mass, phs_mass, energy_axis, eta)
-    plot_dos_open_z(fig_fname='16z_M_-2.0_PHS_M_0.5_open_z_dos')
+    plot_dos_open_z(fig_fname='publishing/open_z_dos_phs')
 
 
 if __name__ == '__main__':

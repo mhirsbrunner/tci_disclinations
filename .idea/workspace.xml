@@ -5,8 +5,366 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd204b8d-d8aa-4d5c-a773-0647fa2f349e" name="Changes" comment="Added code to redirected std out and error">
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-0.1_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-0.1_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-0.2_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-0.2_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-0.3_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-0.3_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-0.4_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-0.4_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-0.5_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-0.5_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-0.6_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-0.6_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-0.7_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-0.7_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-0.8_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-0.8_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-0.9_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-0.9_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-1.1_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-1.1_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-1.2_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-1.2_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-1.3_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-1.3_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-1.4_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-1.4_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-1.5_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-1.5_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-1.6_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-1.6_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-1.7_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-1.7_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-1.8_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-1.8_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-1.9_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-1.9_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-2.0_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-2.0_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-2.1_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-2.1_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-2.2_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-2.2_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-2.3_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-2.3_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-2.4_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-2.4_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-2.5_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-2.5_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-2.6_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-2.6_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-2.7_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-2.7_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-2.8_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-2.8_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-2.9_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-2.9_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-3.1_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-3.1_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-3.2_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-3.2_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-3.3_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-3.3_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-3.4_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-3.4_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-3.5_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-3.5_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-3.6_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-3.6_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-3.7_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-3.7_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-3.8_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-3.8_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-3.9_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-3.9_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-4.0_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_-4.0_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_0.0_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_0.0_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_0.1_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_0.1_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_0.2_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_0.2_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_0.3_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_0.3_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_0.4_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_0.4_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_0.5_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_0.5_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_0.6_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_0.6_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_0.7_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_0.7_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_0.8_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_0.8_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_0.9_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_0.9_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_1.1_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_1.1_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_1.2_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_1.2_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_1.3_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_1.3_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_1.4_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_1.4_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_1.5_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_1.5_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_1.6_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_1.6_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_1.7_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_1.7_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_1.8_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_1.8_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_1.9_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_1.9_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_2.0_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_2.0_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_2.1_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_2.1_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_2.2_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_2.2_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_2.3_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_2.3_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_2.4_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_2.4_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_2.5_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_2.5_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_2.6_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_2.6_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_2.7_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_2.7_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_2.8_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_2.8_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_2.9_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_2.9_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_3.1_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_3.1_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_3.2_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_3.2_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_3.3_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_3.3_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_3.4_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_3.4_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_3.5_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_3.5_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_3.6_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_3.6_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_3.7_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_3.7_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_3.8_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_3.8_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_3.9_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_3.9_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_4.0_half_False_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_16_nz_16_mass_4.0_half_False_other_False_nnn_True.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-0.1_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-0.1_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-0.2_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-0.2_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-0.3_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-0.3_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-0.4_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-0.4_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-0.5_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-0.5_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-0.6_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-0.6_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-0.7_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-0.7_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-0.8_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-0.8_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-0.9_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-0.9_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-1.1_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-1.1_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-1.2_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-1.2_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-1.3_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-1.3_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-1.4_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-1.4_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-1.5_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-1.5_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-1.6_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-1.6_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-1.7_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-1.7_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-1.8_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-1.8_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-1.9_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-1.9_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-2.0_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-2.0_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-2.1_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-2.1_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-2.2_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-2.2_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-2.3_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-2.3_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-2.4_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-2.4_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-2.5_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-2.5_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-2.6_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-2.6_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-2.7_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-2.7_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-2.8_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-2.8_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-2.9_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-2.9_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-3.1_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-3.1_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-3.2_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-3.2_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-3.3_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-3.3_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-3.4_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-3.4_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-3.5_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-3.5_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-3.6_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-3.6_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-3.7_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-3.7_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-3.8_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-3.8_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-3.9_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-3.9_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-4.0_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_-4.0_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_0.0_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_0.0_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_0.1_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_0.1_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_0.2_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_0.2_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_0.3_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_0.3_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_0.4_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_0.4_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_0.5_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_0.5_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_0.6_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_0.6_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_0.7_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_0.7_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_0.8_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_0.8_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_0.9_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_0.9_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_1.1_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_1.1_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_1.2_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_1.2_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_1.3_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_1.3_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_1.4_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_1.4_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_1.5_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_1.5_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_1.6_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_1.6_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_1.7_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_1.7_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_1.8_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_1.8_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_1.9_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_1.9_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_2.0_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_2.0_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_2.1_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_2.1_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_2.2_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_2.2_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_2.3_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_2.3_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_2.4_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_2.4_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_2.5_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_2.5_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_2.6_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_2.6_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_2.7_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_2.7_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_2.8_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_2.8_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_2.9_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_2.9_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_3.1_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_3.1_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_3.2_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_3.2_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_3.3_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_3.3_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_3.4_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_3.4_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_3.5_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_3.5_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_3.6_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_3.6_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_3.7_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_3.7_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_3.8_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_3.8_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_3.9_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_3.9_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_4.0_half_True_other_False_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cluster_data/nx_20_nz_20_mass_4.0_half_True_other_True_nnn_False.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/dos_open_z_phs.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/ed_disclination_ldos.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/open_z_bands.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/open_z_dos_no_phs.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/open_z_dos_phs.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/temp_spin_1.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figures/band_structure.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figures/band_structure.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figures/bands.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figures/bands.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figures/open_z_bands.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figures/open_z_bands.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figures/open_z_dos_no_phs.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figures/open_z_dos_no_phs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figures/open_z_dos_phs.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figures/open_z_dos_phs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figures/publishing/full_nnn_model_charge_vs_mass.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figures/publishing/full_nnn_model_charge_vs_mass.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figures/publishing/full_nnn_model_charge_vs_mass_no_mod.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figures/publishing/full_nnn_model_charge_vs_mass_no_mod.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figures/publishing/half_model_charge_vs_mass.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figures/publishing/half_model_charge_vs_mass.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figures/publishing/open_z_dos_no_phs.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figures/publishing/open_z_dos_no_phs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figures/publishing/other_half_model_charge_vs_mass.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figures/publishing/other_half_model_charge_vs_mass.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_job.slurm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/tci_disclinations.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/tci_disclinations.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/publishing/full_model_charge_density_topological.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/figures/publishing/full_model_charge_density_topological.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/publishing/full_model_charge_density_topological.png" beforeDir="false" afterPath="$PROJECT_DIR$/figures/publishing/full_model_charge_density_topological.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/publishing/full_model_charge_vs_mass.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/figures/publishing/full_model_charge_vs_mass.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/publishing/full_model_q_vs_z_topological.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/figures/publishing/full_model_q_vs_z_topological.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/publishing/full_model_q_vs_z_topological.png" beforeDir="false" afterPath="$PROJECT_DIR$/figures/publishing/full_model_q_vs_z_topological.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/publishing/full_model_q_vs_z_trivial.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/figures/publishing/full_model_q_vs_z_trivial.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/publishing/full_model_q_vs_z_trivial.png" beforeDir="false" afterPath="$PROJECT_DIR$/figures/publishing/full_model_q_vs_z_trivial.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/publishing/open_z_dos.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/publishing/open_z_dos_phs.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/figures/publishing/open_z_dos_phs.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/job.slurm" beforeDir="false" afterPath="$PROJECT_DIR$/job.slurm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matplotlib_styles/bands.mplstyle" beforeDir="false" afterPath="$PROJECT_DIR$/matplotlib_styles/bands.mplstyle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run.sh" beforeDir="false" afterPath="$PROJECT_DIR$/run_template.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_1.sh" beforeDir="false" afterPath="$PROJECT_DIR$/run_1.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_2.sh" beforeDir="false" afterPath="$PROJECT_DIR$/run_2.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_3.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_4.sh" beforeDir="false" afterPath="$PROJECT_DIR$/test_run.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_test.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/disclination.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/disclination.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/open_z_dos.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/open_z_dos.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/plots_for_the_paper.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/plots_for_the_paper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/plotting.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/plotting.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,7 +378,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="292XpTjPDZVoV1nejNEn5fQ4uQO" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -37,6 +395,7 @@
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -46,7 +405,7 @@
       <recent name="D:\Mark\Dropbox\Hughes Group Research\Projects\Geometry-Charge Response in 3D TCIs\tci_disclinations\data\archive" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.disclination">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="tci_disclinations" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -61,6 +420,50 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="disclination" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="tci_disclinations" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/disclination.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="open_z_dos" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="tci_disclinations" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/open_z_dos.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -93,7 +496,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.disclination" />
         <item itemvalue="Python.plots_for_the_paper" />
+        <item itemvalue="Python.open_z_dos" />
       </list>
     </recent_temporary>
   </component>
@@ -112,7 +517,15 @@
       <workItem from="1652456059396" duration="13364000" />
       <workItem from="1652663340662" duration="1497000" />
       <workItem from="1652715472484" duration="11000" />
-      <workItem from="1652716959554" duration="1898000" />
+      <workItem from="1652716959554" duration="2239000" />
+      <workItem from="1652725536104" duration="190000" />
+      <workItem from="1652725760339" duration="280000" />
+      <workItem from="1652726135350" duration="432000" />
+      <workItem from="1652798888674" duration="1054000" />
+      <workItem from="1653265905912" duration="3000" />
+      <workItem from="1653349740450" duration="2049000" />
+      <workItem from="1653519358861" duration="2817000" />
+      <workItem from="1653523214834" duration="763000" />
     </task>
     <task id="LOCAL-00001" summary="Restructured the project, moved a lot of unused code to an archive file">
       <created>1652321297616</created>
@@ -170,7 +583,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652717957423</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Added code to redirected std out and error">
+      <created>1652718877441</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1652718877441</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,6 +609,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
     <MESSAGE value="Restructured the project, moved a lot of unused code to an archive file" />
     <MESSAGE value="Committing unversioned files, mostly data and figures" />
     <MESSAGE value="Modified scripts and calculation functions to allow a choice between CPU and GPU computing. Needed this to allow use on both the DELTA cluster and the Campus Cluster" />
@@ -198,6 +621,7 @@
     <option name="LAST_COMMIT_MESSAGE" value="Added code to redirected std out and error" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/tci_disclinations$plots_for_the_paper.coverage" NAME="plots_for_the_paper Coverage Results" MODIFIED="1652717302576" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/tci_disclinations$plots_for_the_paper.coverage" NAME="plots_for_the_paper Coverage Results" MODIFIED="1652739212443" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/tci_disclinations$disclination.coverage" NAME="disclination Coverage Results" MODIFIED="1652828025679" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
   </component>
 </project>

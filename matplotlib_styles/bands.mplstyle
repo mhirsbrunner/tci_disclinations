@@ -12,7 +12,7 @@ axes.xmargin : 0
 
 # Ticks Properties
 xtick.top : False
-xtick.bottom : False
+xtick.bottom : True
 xtick.direction : out
 xtick.major.size : 8
 xtick.major.width : 2

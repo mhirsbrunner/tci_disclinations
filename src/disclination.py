@@ -1,19 +1,18 @@
 import numpy as np
 import numpy.linalg as nlg
-from numpy import pi, ndarray
+from numpy import sin, cos, pi, ndarray
 
 import cupy as cp
 import cupy.linalg as clg
 
 from scipy import linalg as slg
 
-import matplotlib.pyplot as plt
-
 from pathlib import Path
 import pickle as pkl
 
-from os import listdir
-from os.path import isfile, join
+import src.utils as utils
+
+from tqdm import tqdm
 
 # File structure
 project_src = Path(__file__).parent
@@ -63,7 +62,13 @@ def disclination_surface_indices(nx: int):
 
 
 def disclination_hamiltonian_blocks(nx: int, mass: float, phs_mass: float, half_model=False, other_half=False
-                                    , nnn=False):
+                                    , spin=None):
+    if spin is not None:
+        if spin != 1 and spin !=-1:
+            raise ValueError('Spin must be either 1 or -1')
+        elif half_model:
+            raise ValueError('Cannot implement spinful half model.')
+
     if nx % 2 == 1:
         nx += 1
 
@@ -89,7 +94,12 @@ def disclination_hamiltonian_blocks(nx: int, mass: float, phs_mass: float, half_
 
     else:
         gamma_xy = -1j * np.dot(gamma_x, gamma_y)
-        u_4 = slg.expm(1j * pi / 4 * (np.kron(gamma_xy, sigma_0) + np.kron(np.identity(4, dtype=complex), sigma_z)))
+
+        if spin is None or spin == 0:
+            u_4 = slg.expm(1j * pi / 4 * (np.kron(gamma_xy, sigma_0) + np.kron(np.identity(4, dtype=complex), sigma_z)))
+        else:
+            u_4 = slg.expm(1j * pi / 4 * (np.kron(gamma_xy, sigma_0) + np.kron(np.identity(4, dtype=complex), sigma_z)
+                                          + spin * np.kron(np.identity(4, dtype=complex), sigma_0)))
 
         h_onsite = mass * np.kron(gamma_0, sigma_z)
         h_phs_mass = phs_mass * np.kron(gamma_5, sigma_0)
@@ -146,10 +156,7 @@ def disclination_hamiltonian_blocks(nx: int, mass: float, phs_mass: float, half_
     h01 = np.kron(np.identity(n_tot, dtype=complex), h_z)
 
     # NNN Stuff
-    if nnn and half_model:
-        print("Can't implement nnn hoppings in the half model.")
-    elif nnn:
-        print("Adding next-nearest neighbor hoppings to Hamiltonian")
+    if not half_model:
         h_xz = -1 / 4 * np.kron(gamma_0, sigma_x)
         h_yz = -1 / 4 * np.kron(gamma_0, sigma_y)
 
@@ -160,8 +167,8 @@ def disclination_hamiltonian_blocks(nx: int, mass: float, phs_mass: float, half_
 
 
 def disclination_hamiltonian(nz: int, nx: int, mass: float, phs_mass: float, half_model=False, other_half=False
-                             , nnn=False):
-    h00, h01 = disclination_hamiltonian_blocks(nx, mass, phs_mass, half_model, other_half, nnn)
+                             , spin=None):
+    h00, h01 = disclination_hamiltonian_blocks(nx, mass, phs_mass, half_model, other_half, spin)
 
     h = np.kron(np.identity(nz), np.array(h00))
     h += np.kron(np.diag(np.ones(nz - 1), k=1), h01)
@@ -171,7 +178,7 @@ def disclination_hamiltonian(nz: int, nx: int, mass: float, phs_mass: float, hal
 
 
 def calculate_disclination_rho(nz: int, nx: int, mass: float, phs_mass: float, half_model=False, other_half=False,
-                               nnn=False, use_gpu=True, fname='ed_disclination_ldos'):
+                               spin=None, use_gpu=True, fname='ed_disclination_ldos'):
     if half_model:
         norb = 4
     else:
@@ -179,7 +186,7 @@ def calculate_disclination_rho(nz: int, nx: int, mass: float, phs_mass: float, h
 
     if use_gpu:
         print('Building Hamiltonian and sending to GPU')
-        h = cp.asarray(disclination_hamiltonian(nz, nx, mass, phs_mass, half_model, other_half, nnn))
+        h = cp.asarray(disclination_hamiltonian(nz, nx, mass, phs_mass, half_model, other_half, spin))
 
         print('Solving for eigenvectors and eigenvalues')
         evals, evecs = clg.eigh(h)
@@ -187,7 +194,7 @@ def calculate_disclination_rho(nz: int, nx: int, mass: float, phs_mass: float, h
         evecs = evecs.get()
     else:
         print('Building Hamiltonian')
-        h = disclination_hamiltonian(nz, nx, mass, phs_mass, half_model, other_half, nnn)
+        h = disclination_hamiltonian(nz, nx, mass, phs_mass, half_model, other_half, spin)
 
         print('Solving for eigenvectors and eigenvalues')
         evals, evecs = nlg.eigh(h)
@@ -201,10 +208,75 @@ def calculate_disclination_rho(nz: int, nx: int, mass: float, phs_mass: float, h
             rho += np.sum(temp_rho, axis=-1).real
 
     results = rho
-    params = (nz, nx, mass, phs_mass, half_model, other_half, nnn)
+    params = (nz, nx, mass, phs_mass, half_model, other_half, spin)
     data = (results, params)
 
     with open(data_dir / (fname + '.pickle'), 'wb') as handle:
         pkl.dump(data, handle)
 
     return rho
+
+
+def open_z_hamiltonian(kx: float, ky: float, nz: int, mass: float, phs_mass: float):
+    norb = 8
+
+    h_0 = np.zeros((norb, norb), dtype=complex)
+    h_0_phs = np.zeros_like(h_0)
+    h_z = np.zeros_like(h_0)
+
+    h_0 += (mass + cos(kx) + cos(ky)) * np.kron(gamma_0, sigma_z)
+    h_0 += np.kron(sin(kx) * gamma_x + sin(ky) * gamma_y, sigma_0)
+
+    h_0_phs += phs_mass * np.kron(gamma_5, sigma_0)
+
+    h_z += 1 / 2 * np.kron(gamma_0, sigma_z) + 1j / 2 * np.kron(gamma_z, sigma_0)
+
+    h_z += 1j / 2 * sin(kx) * np.kron(gamma_0, sigma_x) + 1j / 2 * sin(ky) * np.kron(gamma_0, sigma_y)
+
+    h = np.kron(np.identity(nz), np.array(h_0))
+    h[:norb, :norb] += h_0_phs
+    h[-norb:, -norb:] += h_0_phs
+    h += np.kron(np.diag(np.ones(nz - 1), k=1), h_z)
+    h += np.kron(np.diag(np.ones(nz - 1), k=-1), h_z.conj().T)
+
+    return h
+
+
+def calculate_open_z_bands(nz: int, dk: float, mass: float, phs_mass: float, fname='open_z_bands'):
+    norb = 8
+    ks, k_nodes = utils.high_symmetry_lines(dk)
+
+    evals = np.zeros((len(ks), nz * norb))
+
+    for ii, k in enumerate(tqdm(ks)):
+        kx, ky = k
+        h = open_z_hamiltonian(kx, ky, nz, mass, phs_mass)
+        evals[ii] = np.linalg.eigvalsh(h)
+
+    results = evals
+    params = (nz, mass, phs_mass, ks, k_nodes)
+    data = (results, params)
+
+    with open(data_dir / (fname + '.pickle'), 'wb') as handle:
+        pkl.dump(data, handle)
+
+
+def calculate_open_z_dos(nz: int, dk: float, mass: float, phs_mass: float, energy_axis, eta=0.05,
+                         fname='open_z_dos'):
+    ks, k_nodes = utils.high_symmetry_lines(dk)
+
+    dos = np.zeros((len(energy_axis), len(ks)))
+
+    for ii, k in enumerate(tqdm(ks)):
+        kx, ky = k
+        h = open_z_hamiltonian(kx, ky, nz, mass, phs_mass)
+        for jj, energy in enumerate(energy_axis):
+            a = utils.spectral_function(ham=h, energy=energy, eta=eta)
+            dos[jj, ii] = np.sum(np.diag(a)) / (2 * pi)
+
+    results = dos
+    params = (nz, mass, phs_mass, energy_axis, eta, ks, k_nodes)
+    data = (results, params)
+
+    with open(data_dir / (fname + '.pickle'), 'wb') as handle:
+        pkl.dump(data, handle)
