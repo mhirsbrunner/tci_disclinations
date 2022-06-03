@@ -4,16 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bd204b8d-d8aa-4d5c-a773-0647fa2f349e" name="Changes" comment="Cleanup" />
+    <list default="true" id="bd204b8d-d8aa-4d5c-a773-0647fa2f349e" name="Changes" comment="Added code to redirected std out and error">
+      <change afterPath="$PROJECT_DIR$/src/site_disclination.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/tci_disclinations.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/tci_disclinations.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/disclination.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/plaq_disclination.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="ChangesViewManager">
-    <option name="groupingKeys">
-      <option value="directory" />
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -22,7 +24,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="292XpTjPDZVoV1nejNEn5fQ4uQO" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+  <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -34,22 +36,23 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mark\PycharmProjects\tci_disclinations\src" />
       <recent name="D:\Mark\Dropbox\Hughes Group Research\Projects\Geometry-Charge Response in 3D TCIs\tci_disclinations" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Mark\Dropbox\Hughes Group Research\Projects\Geometry-Charge Response in 3D TCIs\tci_disclinations\data\archive" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.disclination">
+  <component name="RunManager">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="tci_disclinations" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -64,50 +67,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="disclination" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="tci_disclinations" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/disclination.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="open_z_dos" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="tci_disclinations" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/open_z_dos.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -140,9 +99,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.disclination" />
         <item itemvalue="Python.plots_for_the_paper" />
-        <item itemvalue="Python.open_z_dos" />
       </list>
     </recent_temporary>
   </component>
@@ -161,16 +118,10 @@
       <workItem from="1652456059396" duration="13364000" />
       <workItem from="1652663340662" duration="1497000" />
       <workItem from="1652715472484" duration="11000" />
-      <workItem from="1652716959554" duration="2239000" />
-      <workItem from="1652725536104" duration="190000" />
-      <workItem from="1652725760339" duration="280000" />
-      <workItem from="1652726135350" duration="432000" />
-      <workItem from="1652798888674" duration="1054000" />
-      <workItem from="1653265905912" duration="3000" />
-      <workItem from="1653349740450" duration="2049000" />
-      <workItem from="1653519358861" duration="2817000" />
-      <workItem from="1653523214834" duration="1079000" />
-      <workItem from="1653524314576" duration="311000" />
+      <workItem from="1652716959554" duration="1898000" />
+      <workItem from="1652726044197" duration="89000" />
+      <workItem from="1653936626887" duration="2311000" />
+      <workItem from="1654288422397" duration="4489000" />
     </task>
     <task id="LOCAL-00001" summary="Restructured the project, moved a lot of unused code to an archive file">
       <created>1652321297616</created>
@@ -228,42 +179,7 @@
       <option name="project" value="LOCAL" />
       <updated>1652717957423</updated>
     </task>
-    <task id="LOCAL-00009" summary="Added code to redirected std out and error">
-      <created>1652718877441</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1652718877441</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Made the next-nearest neighbor hopping terms permanent. Added code to allow modeling the spinful rTCI model. Added scripts to calculate the disclination charge for the spinful model as a function of mass.">
-      <created>1653524084668</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1653524084668</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Cleanup">
-      <created>1653524392547</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1653524392547</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Cleanup">
-      <created>1653524488102</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1653524488102</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Cleanup">
-      <created>1653524598026</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1653524598026</updated>
-    </task>
-    <option name="localTasksCounter" value="14" />
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -279,24 +195,19 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <ignored-roots>
-      <path value="$PROJECT_DIR$" />
-    </ignored-roots>
     <MESSAGE value="Restructured the project, moved a lot of unused code to an archive file" />
     <MESSAGE value="Committing unversioned files, mostly data and figures" />
     <MESSAGE value="Modified scripts and calculation functions to allow a choice between CPU and GPU computing. Needed this to allow use on both the DELTA cluster and the Campus Cluster" />
     <MESSAGE value="Added SBATCH files for the campus cluster&#10;&#10;Added next-nearest neighbor hoppings option for the full model" />
     <MESSAGE value="Archived all existing data&#10;&#10;Removed campus cluster scripts&#10;&#10;Added testing and numbered scripts to be executed on the Delta cluster" />
     <MESSAGE value="Added code to redirected std out and error" />
-    <MESSAGE value="Made the next-nearest neighbor hopping terms permanent. Added code to allow modeling the spinful rTCI model. Added scripts to calculate the disclination charge for the spinful model as a function of mass." />
-    <MESSAGE value="Cleanup" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added code to redirected std out and error" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/tci_disclinations$plots_for_the_paper.coverage" NAME="plots_for_the_paper Coverage Results" MODIFIED="1652739212443" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
-    <SUITE FILE_PATH="coverage/tci_disclinations$disclination.coverage" NAME="disclination Coverage Results" MODIFIED="1652828025679" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/tci_disclinations$plots_for_the_paper.coverage" NAME="plots_for_the_paper Coverage Results" MODIFIED="1652717302576" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
   </component>
 </project>
