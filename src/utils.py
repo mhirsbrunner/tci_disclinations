@@ -5,7 +5,6 @@ from numpy import pi
 import cupy as cp
 import cupy.linalg as clg
 
-from numba import njit
 import matplotlib.pyplot as plt
 from mpl_toolkits import axes_grid1
 

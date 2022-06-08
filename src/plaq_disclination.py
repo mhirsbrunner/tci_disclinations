@@ -65,7 +65,7 @@ def disclination_surface_indices(nx: int):
 
 
 def disclination_hamiltonian_blocks(nx: int, mass: float, phs_mass: float, half_model=False, other_half=False
-                                    , spin=None):
+                                    , spin=None, z_surface=False):
     if spin is not None:
         if spin != 1 and spin != -1 and spin != 0:
             raise ValueError('Spin must be either -1, 0, or 1')
@@ -74,6 +74,7 @@ def disclination_hamiltonian_blocks(nx: int, mass: float, phs_mass: float, half_
 
     if nx % 2 == 1:
         nx += 1
+
 
     ny = nx
 
@@ -127,8 +128,10 @@ def disclination_hamiltonian_blocks(nx: int, mass: float, phs_mass: float, half_
     h00 += np.kron(np.identity(n_tot, dtype=complex), h_onsite)
 
     # PHS Breaking on all surfaces
-
-    surf_sites = disclination_surface_indices(nx)
+    if z_surface:
+        phs_mass_sites = disclination_surface_indices(nx)
+    else:
+        phs_mass_sites = np.ones(3 * nx * ny // 4)
     h00 += np.kron(np.diag(surf_sites), h_phs_mass)
 
     # X-Hopping
@@ -174,7 +177,7 @@ def disclination_hamiltonian_blocks(nx: int, mass: float, phs_mass: float, half_
     # Disclination Hopping
     for ii in range(nx // 2):
         ind_1 = norb * ((nx + 1) * (ny // 2 - 1) + nx // 2 + ii + 1)
-        ind_2 = norb * (nx * (ny // 2) + nx // 2 * (1 + ii) - 1)
+        ind_2 = norb * ((nx + 1) * (ny // 2) + nx // 2 * (1 + ii) - 1)
 
         h00[ind_1:ind_1 + norb, ind_2:ind_2 + norb] += h_disc
         h00[ind_2:ind_2 + norb, ind_1:ind_1 + norb] += h_disc.conj().T
@@ -196,8 +199,14 @@ def disclination_hamiltonian_blocks(nx: int, mass: float, phs_mass: float, half_
 def disclination_hamiltonian(nz: int, nx: int, mass: float, phs_mass: float, half_model=False, other_half=False
                              , spin=None):
     h00, h01 = disclination_hamiltonian_blocks(nx, mass, phs_mass, half_model, other_half, spin)
+    h00_surf, h01_surf = disclination_hamiltonian_blocks(nx, mass, phs_mass, half_model, other_half, spin, z_surface=True)
 
-    h = np.kron(np.identity(nz), np.array(h00))
+    surface_z_indices = np.concatenate((1,), np.zeros(nz - 2), (1,))
+    bulk_z_indices = 1 - surface_z_indices
+
+    h = np.kron(surface_z_indices, np.array(h00_surf))
+    h += np.kron(bulk_z_indices, np.array(h00))
+
     h += np.kron(np.diag(np.ones(nz - 1), k=1), h01)
     h += np.kron(np.diag(np.ones(nz - 1), k=-1), h01.conj().T)
 

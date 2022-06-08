@@ -1,18 +1,11 @@
+# TODO: Add documentation strings, rename to accurately reflect disclination types
 import numpy as np
 import numpy.linalg as nlg
-from numpy import sin, cos, pi, ndarray
-
-import cupy as cp
-import cupy.linalg as clg
-
+from numpy import sin, cos, pi
 from scipy import linalg as slg
 
 from pathlib import Path
 import pickle as pkl
-
-import src.utils as utils
-
-from tqdm import tqdm
 
 # File structure
 project_src = Path(__file__).parent
@@ -35,7 +28,8 @@ gamma_5 = np.kron(sigma_z, sigma_y)
 
 
 # Disclination Functions
-def disclination_surface_indices(nx: int):
+# TODO: Generalize this to work for site and plaquette centered disclinations
+def side_surface_indices(nx: int):
     """
     Returns a list of ones and zeros where ones indicate that the index corresponds to a surface site
     :param nx:
@@ -61,8 +55,26 @@ def disclination_surface_indices(nx: int):
     return surf_sites
 
 
+# TODO: Generalize this to work for site and plaquette centered disclinations
+def disclination_hopping_matrix(nx):
+    ny = nx
+    n_tot = 3 * nx * ny // 4
+
+    hopping_matrix = np.zeros((n_tot, n_tot))
+
+    ind_1 = [nx * (ny // 2 - 1) + nx // 2 + ii for ii in range(nx // 2)]
+    ind_2 = [nx * (ny // 2) + nx // 2 * (1 + ii) - 1 for ii in range(nx // 2)]
+
+    for (ii, jj) in zip(ind_1, ind_2):
+        hopping_matrix[ii, jj] = 1
+
+    return hopping_matrix
+
+
+# TODO: Modify half_model and other_half to work like the spin input
+# TODO: Modify to allow both types of disclinations
 def disclination_hamiltonian_blocks(nx: int, mass: float, phs_mass: float, half_model=False, other_half=False
-                                    , spin=None):
+                                    , spin=None, z_surface=False):
     if spin is not None:
         if spin != 1 and spin != -1 and spin != 0:
             raise ValueError('Spin must be either -1, 0, or 1')
@@ -108,60 +120,62 @@ def disclination_hamiltonian_blocks(nx: int, mass: float, phs_mass: float, half_
         h_y = 1j / 2 * np.kron(gamma_y, sigma_0) + 1 / 2 * np.kron(gamma_0, sigma_z)
         h_z = 1j / 2 * np.kron(gamma_z, sigma_0) + 1 / 2 * np.kron(gamma_0, sigma_z)
 
+        h_xz = -1 / 4 * np.kron(gamma_0, sigma_x)
+        h_yz = -1 / 4 * np.kron(gamma_0, sigma_y)
+
+        h_disc_nnn = np.dot(nlg.inv(u_4), h_yz)  # NNN hopping term across disclination
+
         norb = 8
 
     h_disc = np.dot(nlg.inv(u_4), h_y)  # hopping term across disclination
 
-    n_tot = (3 * nx * ny) // 4
+    n_sites = (3 * nx * ny) // 4
 
-    h00 = np.zeros((n_tot * norb, n_tot * norb), dtype=complex)
+    h00 = np.zeros((n_sites * norb, n_sites * norb), dtype=complex)
 
     # Onsite Hamiltonian
-    h00 += np.kron(np.identity(n_tot, dtype=complex), h_onsite)
+    h00 += np.kron(np.identity(n_sites, dtype=complex), h_onsite)
 
     # PHS Breaking on all surfaces
-
-    surf_sites = disclination_surface_indices(nx)
-    h00 += np.kron(np.diag(surf_sites), h_phs_mass)
+    if z_surface:
+        phs_mass_sites = np.ones(n_sites)
+    else:
+        phs_mass_sites = side_surface_indices(nx)
+    h00 += np.kron(np.diag(phs_mass_sites), h_phs_mass)
 
     # X-Hopping
-    temp_x = np.zeros(0)
+    x_hopping_sites = np.zeros(0)
     for ii in range(ny // 2):
-        temp_x = np.concatenate((temp_x, np.ones(nx - 1, dtype=complex), (0,)))
+        x_hopping_sites = np.concatenate((x_hopping_sites, np.ones(nx - 1, dtype=complex), (0,)))
     for ii in range(ny // 2 - 1):
-        temp_x = np.concatenate((temp_x, np.ones(nx // 2 - 1, dtype=complex), (0,)))
-    temp_x = np.concatenate((temp_x, np.ones(nx // 2 - 1, dtype=complex)))
+        x_hopping_sites = np.concatenate((x_hopping_sites, np.ones(nx // 2 - 1, dtype=complex), (0,)))
+    x_hopping_sites = np.concatenate((x_hopping_sites, np.ones(nx // 2 - 1, dtype=complex)))
 
-    hop_x = np.diag(temp_x, k=1)
-    h00 += np.kron(hop_x, h_x) + np.kron(hop_x, h_x).conj().T
+    x_hopping_matrix = np.diag(x_hopping_sites, k=1)
+    h00 += np.kron(x_hopping_matrix, h_x) + np.kron(x_hopping_matrix, h_x).conj().T
 
     # Y-Hopping
-    temp_y_1 = np.concatenate((np.ones(nx * (ny // 2 - 1) + nx // 2, dtype=complex),
-                               np.zeros(nx // 2 * (ny // 2 - 1), dtype=complex)))
-    temp_y_2 = np.concatenate((np.zeros(nx * ny // 2, dtype=complex),
-                               np.ones(nx // 2 * (ny // 2 - 1), dtype=complex)))
+    y_hopping_sites_1 = np.concatenate((np.ones(nx * (ny // 2 - 1) + nx // 2, dtype=complex),
+                                        np.zeros(nx // 2 * (ny // 2 - 1), dtype=complex)))
+    y_hopping_sites_2 = np.concatenate((np.zeros(nx * ny // 2, dtype=complex),
+                                        np.ones(nx // 2 * (ny // 2 - 1), dtype=complex)))
 
-    hop_y = np.diag(temp_y_1, k=nx) + np.diag(temp_y_2, k=nx // 2)
-    h00 += np.kron(hop_y, h_y) + np.kron(hop_y, h_y).conj().T
+    y_hopping_matrix = np.diag(y_hopping_sites_1, k=nx) + np.diag(y_hopping_sites_2, k=nx // 2)
+    h00 += np.kron(y_hopping_matrix, h_y) + np.kron(y_hopping_matrix, h_y).conj().T
 
     # Disclination Hopping
-    for ii in range(nx // 2):
-        ind_1 = norb * (nx * (ny // 2 - 1) + nx // 2 + ii)
-        ind_2 = norb * (nx * (ny // 2) + nx // 2 * (1 + ii) - 1)
-
-        h00[ind_1:ind_1 + norb, ind_2:ind_2 + norb] += h_disc
-        h00[ind_2:ind_2 + norb, ind_1:ind_1 + norb] += h_disc.conj().T
+    h00 += (np.kron(disclination_hopping_matrix(nx), h_disc) +
+            np.kron(disclination_hopping_matrix(nx), h_disc).conj().T)
 
     # Z-Hopping
-    h01 = np.kron(np.identity(n_tot, dtype=complex), h_z)
+    h01 = np.kron(np.identity(n_sites, dtype=complex), h_z)
 
-    # NNN Stuff
+    # NNN Z- and Disclination-Hoppings
     if not half_model:
-        h_xz = -1 / 4 * np.kron(gamma_0, sigma_x)
-        h_yz = -1 / 4 * np.kron(gamma_0, sigma_y)
-
-        h01 += np.kron(hop_x, h_xz) + np.kron(-hop_x.T, h_xz)
-        h01 += np.kron(hop_y, h_yz) + np.kron(-hop_y.T, h_yz)
+        h01 += np.kron(x_hopping_matrix, h_xz) + np.kron(-x_hopping_matrix.T, h_xz)
+        h01 += np.kron(y_hopping_matrix, h_yz) + np.kron(-y_hopping_matrix.T, h_yz)
+        h01 += (np.kron(disclination_hopping_matrix(nx), h_disc_nnn) +
+                np.kron(-disclination_hopping_matrix(nx).T, h_disc_nnn))
 
     return h00, h01
 
@@ -169,8 +183,15 @@ def disclination_hamiltonian_blocks(nx: int, mass: float, phs_mass: float, half_
 def disclination_hamiltonian(nz: int, nx: int, mass: float, phs_mass: float, half_model=False, other_half=False
                              , spin=None):
     h00, h01 = disclination_hamiltonian_blocks(nx, mass, phs_mass, half_model, other_half, spin)
+    h00_surf, h01_surf = disclination_hamiltonian_blocks(nx, mass, phs_mass, half_model, other_half, spin,
+                                                         z_surface=True)
 
-    h = np.kron(np.identity(nz), np.array(h00))
+    surface_z_indices = np.concatenate(((1,), np.zeros(nz - 2), (1,)))
+    bulk_z_indices = 1 - surface_z_indices
+
+    h = np.kron(np.diag(surface_z_indices), np.array(h00_surf))
+    h += np.kron(np.diag(bulk_z_indices), np.array(h00))
+
     h += np.kron(np.diag(np.ones(nz - 1), k=1), h01)
     h += np.kron(np.diag(np.ones(nz - 1), k=-1), h01.conj().T)
 
@@ -185,6 +206,9 @@ def calculate_disclination_rho(nz: int, nx: int, mass: float, phs_mass: float, h
         norb = 8
 
     if use_gpu:
+        import cupy as cp
+        import cupy.linalg as clg
+
         print('Building Hamiltonian and sending to GPU')
         h = cp.asarray(disclination_hamiltonian(nz, nx, mass, phs_mass, half_model, other_half, spin))
 
@@ -215,68 +239,3 @@ def calculate_disclination_rho(nz: int, nx: int, mass: float, phs_mass: float, h
         pkl.dump(data, handle)
 
     return rho
-
-
-def open_z_hamiltonian(kx: float, ky: float, nz: int, mass: float, phs_mass: float):
-    norb = 8
-
-    h_0 = np.zeros((norb, norb), dtype=complex)
-    h_0_phs = np.zeros_like(h_0)
-    h_z = np.zeros_like(h_0)
-
-    h_0 += (mass + cos(kx) + cos(ky)) * np.kron(gamma_0, sigma_z)
-    h_0 += np.kron(sin(kx) * gamma_x + sin(ky) * gamma_y, sigma_0)
-
-    h_0_phs += phs_mass * np.kron(gamma_5, sigma_0)
-
-    h_z += 1 / 2 * np.kron(gamma_0, sigma_z) + 1j / 2 * np.kron(gamma_z, sigma_0)
-
-    h_z += 1j / 2 * sin(kx) * np.kron(gamma_0, sigma_x) + 1j / 2 * sin(ky) * np.kron(gamma_0, sigma_y)
-
-    h = np.kron(np.identity(nz), np.array(h_0))
-    h[:norb, :norb] += h_0_phs
-    h[-norb:, -norb:] += h_0_phs
-    h += np.kron(np.diag(np.ones(nz - 1), k=1), h_z)
-    h += np.kron(np.diag(np.ones(nz - 1), k=-1), h_z.conj().T)
-
-    return h
-
-
-def calculate_open_z_bands(nz: int, dk: float, mass: float, phs_mass: float, fname='open_z_bands'):
-    norb = 8
-    ks, k_nodes = utils.high_symmetry_lines(dk)
-
-    evals = np.zeros((len(ks), nz * norb))
-
-    for ii, k in enumerate(tqdm(ks)):
-        kx, ky = k
-        h = open_z_hamiltonian(kx, ky, nz, mass, phs_mass)
-        evals[ii] = np.linalg.eigvalsh(h)
-
-    results = evals
-    params = (nz, mass, phs_mass, ks, k_nodes)
-    data = (results, params)
-
-    with open(data_dir / (fname + '.pickle'), 'wb') as handle:
-        pkl.dump(data, handle)
-
-
-def calculate_open_z_dos(nz: int, dk: float, mass: float, phs_mass: float, energy_axis, eta=0.05,
-                         fname='open_z_dos'):
-    ks, k_nodes = utils.high_symmetry_lines(dk)
-
-    dos = np.zeros((len(energy_axis), len(ks)))
-
-    for ii, k in enumerate(tqdm(ks)):
-        kx, ky = k
-        h = open_z_hamiltonian(kx, ky, nz, mass, phs_mass)
-        for jj, energy in enumerate(energy_axis):
-            a = utils.spectral_function(ham=h, energy=energy, eta=eta)
-            dos[jj, ii] = np.sum(np.diag(a)) / (2 * pi)
-
-    results = dos
-    params = (nz, mass, phs_mass, energy_axis, eta, ks, k_nodes)
-    data = (results, params)
-
-    with open(data_dir / (fname + '.pickle'), 'wb') as handle:
-        pkl.dump(data, handle)
