@@ -86,7 +86,8 @@ def number_of_sites(nx: int, disc_type='plaq'):
     return len(side_surface_indices(nx, disc_type))
 
 
-def x_hopping_matrix(nx, disc_type='plaq'):
+# TODO: Check the nnn stuff for 'site' disclinations
+def x_hopping_matrix(nx, disc_type='plaq', nnn=False):
     bottom_width, top_width, left_height, right_height = disclination_dimensions(nx, disc_type)
 
     x_hopping_sites = np.zeros(0)
@@ -99,16 +100,23 @@ def x_hopping_matrix(nx, disc_type='plaq'):
 
     x_hopping_sites = np.concatenate((x_hopping_sites, np.ones(top_width - 1, dtype=complex)))
 
+    if nnn and disc_type.lower() == 'site':
+        x_hopping_sites[bottom_width * (right_height - 1) + top_width - 1] = 0
+        x_hopping_sites[bottom_width * (right_height - 1) + top_width] = 0
+
     return np.diag(x_hopping_sites, k=1)
 
 
-def y_hopping_matrix(nx, disc_type='plaq'):
+def y_hopping_matrix(nx, disc_type='plaq', nnn=False):
     bottom_width, top_width, left_height, right_height = disclination_dimensions(nx, disc_type)
 
     y_hopping_sites_1 = np.concatenate((np.ones(bottom_width * (right_height - 1) + top_width, dtype=complex),
                                         np.zeros(top_width * (left_height - right_height - 1), dtype=complex)))
     y_hopping_sites_2 = np.concatenate((np.zeros(bottom_width * right_height, dtype=complex),
                                         np.ones(top_width * (left_height - right_height - 1), dtype=complex)))
+
+    if nnn and disc_type.lower() == 'site':
+        y_hopping_sites_1[bottom_width * (right_height - 2) + top_width] = 0
 
     return np.diag(y_hopping_sites_1, k=nx) + np.diag(y_hopping_sites_2, k=nx // 2)
 
@@ -135,7 +143,7 @@ def disclination_hamiltonian_blocks(nx: int, mass: float, phs_mass: float, disc_
     if half_sign is not None:
         if half_sign != 1 and half_sign != -1:
             raise ValueError('Parameter "half" must be either -1 or 1')
-        if (spin is not 0) and (spin is not None):
+        if (spin != 0) and (spin is not None):
             raise ValueError('Cannot implement spinful half model.')
 
     if spin is not None:
@@ -213,8 +221,11 @@ def disclination_hamiltonian_blocks(nx: int, mass: float, phs_mass: float, disc_
         h_yz = -1 / 4 * np.kron(gamma_0, sigma_y)
         h_disc_nnn = np.dot(nlg.inv(u_4), h_yz)
 
-        h01 += np.kron(x_hopping, h_xz) - np.kron(x_hopping.T, h_xz)
-        h01 += np.kron(y_hopping, h_yz) - np.kron(y_hopping.T, h_yz)
+        nnn_x_hopping = x_hopping_matrix(nx, disc_type, nnn=True)
+        nnn_y_hopping = y_hopping_matrix(nx, disc_type, nnn=True)
+
+        h01 += np.kron(nnn_x_hopping, h_xz) - np.kron(nnn_x_hopping.T, h_xz)
+        h01 += np.kron(nnn_y_hopping, h_yz) - np.kron(nnn_y_hopping.T, h_yz)
         h01 += (np.kron(disc_hopping, h_disc_nnn) -
                 np.kron(disc_hopping.T, h_disc_nnn))
 
