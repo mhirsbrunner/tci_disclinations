@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd204b8d-d8aa-4d5c-a773-0647fa2f349e" name="Changes" comment="Added code to redirected std out and error">
-      <change afterPath="$PROJECT_DIR$/src/defect_free.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/tci_disclinations.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/tci_disclinations.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/plaq_test.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/site_test.pickle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/plaq_disclination.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/plaq_disclination.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/site_disclination.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/site_disclination.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/plaq_disclination.py" beforeDir="false" afterPath="$PROJECT_DIR$/archive/site_disclination.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/site_disclination.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/disclination.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +54,7 @@
       <recent name="D:\Mark\Dropbox\Hughes Group Research\Projects\Geometry-Charge Response in 3D TCIs\tci_disclinations" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/archive" />
       <recent name="D:\Mark\Dropbox\Hughes Group Research\Projects\Geometry-Charge Response in 3D TCIs\tci_disclinations\data\archive" />
     </key>
   </component>
@@ -130,6 +130,8 @@
       <workItem from="1654288422397" duration="5189000" />
       <workItem from="1654646361524" duration="1469000" />
       <workItem from="1654648574461" duration="3233000" />
+      <workItem from="1655134087033" duration="5110000" />
+      <workItem from="1655209985390" duration="4144000" />
     </task>
     <task id="LOCAL-00001" summary="Restructured the project, moved a lot of unused code to an archive file">
       <created>1652321297616</created>

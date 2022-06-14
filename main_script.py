@@ -1,4 +1,4 @@
-import src.site_disclination as disc
+import src.disclination as disc
 import numpy as np
 from sys import argv
 from time import time
