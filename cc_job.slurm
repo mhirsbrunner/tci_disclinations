@@ -1,17 +1,15 @@
 #!/bin/bash
 #SBATCH --nodes=1
-#SBATCH --gpus-per-node=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=1    # <- match to OMP_NUM_THREADS
-#SBATCH --gres=gpu:V100
 #SBATCH --time=01:00:00      # hh:mm:ss for the job
-##SBATCH --mail-user=hrsbrnn2@illinois.edu
-##SBATCH --mail-type="END"
+#SBATCH --mail-user=hrsbrnn2@illinois.edu
+#SBATCH --mail-type="START","END"
 
  
 module purge 
-module load cuda gcc anaconda3
+module load gcc anaconda3
 module list  
 echo "job is starting on `hostname`"
-srun python main_script.py $nx $nz $mass $half_model $other_half $nnn
+srun python cc_main_script.py $nx $nz $mass $disc_type $half_sign $spin
 
