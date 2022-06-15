@@ -151,19 +151,7 @@ def disclination_hamiltonian_blocks(nx: int, mass: float, phs_mass: float, disc_
             raise ValueError('Parameter "spin" must be either -1, 0, or 1')
 
     # Build Hamiltonian blocks
-    if half_sign is not None and half_sign != 0:
-        gamma_xy = -1j * np.dot(gamma_x, gamma_y)
-        u_4 = slg.expm(1j * pi / 4 * (gamma_xy + half_sign * np.identity(4, dtype=complex)))
-
-        h_onsite = half_sign * mass * gamma_0
-        h_phs_mass = phs_mass * gamma_5
-
-        h_x = 1j / 2 * gamma_x + 1 / 2 * gamma_0 * half_sign
-        h_y = 1j / 2 * gamma_y + 1 / 2 * gamma_0 * half_sign
-        h_z = 1j / 2 * gamma_z + 1 / 2 * gamma_0 * half_sign
-
-        norb = 4
-    else:
+    if half_sign is None or half_sign == 0:
         gamma_xy = -1j * np.dot(gamma_x, gamma_y)
 
         if spin is None or spin == 0:
@@ -180,6 +168,18 @@ def disclination_hamiltonian_blocks(nx: int, mass: float, phs_mass: float, disc_
         h_z = 1j / 2 * np.kron(gamma_z, sigma_0) + 1 / 2 * np.kron(gamma_0, sigma_z)
 
         norb = 8
+    else:
+        gamma_xy = -1j * np.dot(gamma_x, gamma_y)
+        u_4 = slg.expm(1j * pi / 4 * (gamma_xy + half_sign * np.identity(4, dtype=complex)))
+
+        h_onsite = half_sign * mass * gamma_0
+        h_phs_mass = phs_mass * gamma_5
+
+        h_x = 1j / 2 * gamma_x + 1 / 2 * gamma_0 * half_sign
+        h_y = 1j / 2 * gamma_y + 1 / 2 * gamma_0 * half_sign
+        h_z = 1j / 2 * gamma_z + 1 / 2 * gamma_0 * half_sign
+
+        norb = 4
 
     h_disc = np.dot(nlg.inv(u_4), h_y)
 
@@ -216,7 +216,7 @@ def disclination_hamiltonian_blocks(nx: int, mass: float, phs_mass: float, disc_
     h01 = np.kron(np.identity(n_sites, dtype=complex), h_z)
 
     # NNN Z- and Disclination-Hoppings
-    if half_sign is None:
+    if half_sign is None or half_sign == 0:
         h_xz = -1 / 4 * np.kron(gamma_0, sigma_x)
         h_yz = -1 / 4 * np.kron(gamma_0, sigma_y)
         h_disc_nnn = np.dot(nlg.inv(u_4), h_yz)
@@ -252,7 +252,7 @@ def disclination_hamiltonian(nz: int, nx: int, mass: float, phs_mass: float, dis
 
 def calculate_disclination_rho(nz: int, nx: int, mass: float, phs_mass: float, disc_type='plaq', half_sign=None,
                                spin=None, use_gpu=True, fname='ed_disclination_ldos'):
-    if half_sign is None:
+    if half_sign is None or half_sign == 0:
         norb = 8
     else:
         norb = 4

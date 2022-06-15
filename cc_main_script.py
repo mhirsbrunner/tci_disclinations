@@ -5,7 +5,7 @@ from time import time
 from datetime import datetime
 
 
-def main(nx: int, nz: int, mass: float, disc_type: str, half_sign: int, spin: int):
+def main(nz: int, nx: int, mass: float, disc_type: str, half_sign: int, spin: int):
     phs_mass = np.min(np.abs((mass - 3, mass - 1, mass + 1, mass + 3)))
 
     print("Calculating disclination_rho for mass = ", mass)
