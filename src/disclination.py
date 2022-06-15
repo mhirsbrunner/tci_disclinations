@@ -143,12 +143,13 @@ def disclination_hamiltonian_blocks(nx: int, mass: float, phs_mass: float, disc_
     if half_sign is not None:
         if half_sign != 1 and half_sign != -1 and half_sign != 0:
             raise ValueError('Parameter "half" must be either -1, 0, or 1')
-        if (spin != 0) and (spin is not None):
-            raise ValueError('Cannot implement spinful half model.')
 
     if spin is not None:
         if spin != 1 and spin != -1 and spin != 0:
             raise ValueError('Parameter "spin" must be either -1, 0, or 1')
+
+    if (half_sign == 1 or half_sign == -1) and (spin == 1 or spin == -1):
+        raise ValueError('Cannot implement spinful half model.')
 
     # Build Hamiltonian blocks
     if half_sign is None or half_sign == 0:
