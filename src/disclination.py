@@ -141,8 +141,8 @@ def disclination_hopping_matrix(nx, disc_type='plaq'):
 def disclination_hamiltonian_blocks(nx: int, mass: float, phs_mass: float, disc_type='plaq', half_sign=None, spin=None,
                                     z_surface=False):
     if half_sign is not None:
-        if half_sign != 1 and half_sign != -1:
-            raise ValueError('Parameter "half" must be either -1 or 1')
+        if half_sign != 1 and half_sign != -1 and half_sign != 0:
+            raise ValueError('Parameter "half" must be either -1, 0, or 1')
         if (spin != 0) and (spin is not None):
             raise ValueError('Cannot implement spinful half model.')
 
@@ -151,7 +151,7 @@ def disclination_hamiltonian_blocks(nx: int, mass: float, phs_mass: float, disc_
             raise ValueError('Parameter "spin" must be either -1, 0, or 1')
 
     # Build Hamiltonian blocks
-    if half_sign is not None:
+    if half_sign is not None and half_sign != 0:
         gamma_xy = -1j * np.dot(gamma_x, gamma_y)
         u_4 = slg.expm(1j * pi / 4 * (gamma_xy + half_sign * np.identity(4, dtype=complex)))
 
@@ -226,6 +226,7 @@ def disclination_hamiltonian_blocks(nx: int, mass: float, phs_mass: float, disc_
 
         h01 += np.kron(nnn_x_hopping, h_xz) - np.kron(nnn_x_hopping.T, h_xz)
         h01 += np.kron(nnn_y_hopping, h_yz) - np.kron(nnn_y_hopping.T, h_yz)
+        # TODO: Check the signs and conjugate transposes here
         h01 += (np.kron(disc_hopping, h_disc_nnn) -
                 np.kron(disc_hopping.T, h_disc_nnn))
 
