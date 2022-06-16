@@ -229,7 +229,7 @@ def disclination_hamiltonian_blocks(nx: int, mass: float, phs_mass: float, disc_
         h01 += np.kron(nnn_y_hopping, h_yz) - np.kron(nnn_y_hopping.T, h_yz)
 
         h01 += (np.kron(disc_hopping, h_disc_nnn) -
-                np.kron(disc_hopping.T.conj(), h_disc_nnn))
+                np.kron(disc_hopping.T, h_disc_nnn.conj().T))
 
     return h00, h01
 
