@@ -117,6 +117,7 @@ def plot_band_structure(dk, mass, phs_mass, nnn=False, save=True, fig_fname='ban
     return
 
 
+# TODO: Add code for site-centered disclinations
 def disclination_graph(nx: int):
     graph = netx.Graph()
 
@@ -145,20 +146,20 @@ def disclination_graph(nx: int):
     return graph, pos
 
 
-def plot_disclination_rho(half='bottom', data_fname='ed_disclination_ldos', save=True, fig_fname='ed_disclination_rho'):
+def plot_disclination_rho(z_half='bottom', data_fname='ed_disclination_ldos', save=True, fig_fname='ed_disclination_rho'):
     results, params = utils.load_results(data_fname)
-    nz, nx, mass, phs_mass, half_model, other_half, nnn = params
+    nz, nx, mass, phs_mass, disc_type, half_sign, spin = params
 
-    if half.lower() == 'bottom':
+    if z_half.lower() == 'bottom':
         rho = np.sum(results[:nz // 2], axis=0)
-    elif half.lower() == 'top':
+    elif z_half.lower() == 'top':
         rho = np.sum(results[nz // 2:], axis=0)
     else:
         raise ValueError('Input "half" must specify "bottom" or "top" half of the system over which to sum the '
                          'density of states')
 
     # Subtract background charge and calculate the total charge (mod 8)
-    if half_model:
+    if half_sign is not None and half_sign != 0:
         data = rho - 2 * nz // 2
         print(f'Modded total charge: {(rho.sum() % (1 / 8)) * 8}')
     else:
@@ -166,7 +167,8 @@ def plot_disclination_rho(half='bottom', data_fname='ed_disclination_ldos', save
         print(f'Modded total charge: {(rho.sum() % (1 / 4)) * 4}')
 
     normalized_data = data / np.max(np.abs(data))
-    alpha_data = [np.min((x, 0.9)) for x in normalized_data]
+    # alpha_data = [np.min((x, 0.9)) for x in np.abs(normalized_data)]
+    alpha_data = np.abs(normalized_data)
 
     # Generate list of lattice sites and positions
     x = []
@@ -186,6 +188,8 @@ def plot_disclination_rho(half='bottom', data_fname='ed_disclination_ldos', save
     marker_scale = 250
     im = ax.scatter(x, y, s=marker_scale * np.abs(normalized_data), c='red', marker='o',
                     alpha=alpha_data, vmin=0)
+    # im = ax.scatter(x, y, s=marker_scale * np.abs(normalized_data), c=-normalized_data, cmap='magma', marker='o',
+    #                 vmin=-1, vmax=1)
     ax.scatter(x, y, s=2, c='black')
     ax.set_aspect('equal')
 

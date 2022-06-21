@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bd204b8d-d8aa-4d5c-a773-0647fa2f349e" name="Changes" comment="" />
+    <list default="true" id="bd204b8d-d8aa-4d5c-a773-0647fa2f349e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/data/nz_12_nx_12_mass_-2.0_type_plaq_half_1_spin_0.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/nz_12_nx_12_mass_0.0_type_plaq_half_1_spin_0.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/nz_12_nx_12_mass_2.0_type_plaq_half_1_spin_0.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cc_main_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/cc_main_script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/disclination.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/disclination.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/plotting.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/plotting.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,17 +40,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/mark/Dropbox/Hughes Group Research/Projects/Geometry-Charge Response in 3D TCIs/tci_disclinations&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
-  }
-}</component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -130,6 +134,10 @@
       <workItem from="1655215179735" duration="5441000" />
       <workItem from="1655240020822" duration="57000" />
       <workItem from="1655305742300" duration="3013000" />
+      <workItem from="1655393743643" duration="846000" />
+      <workItem from="1655409474365" duration="3702000" />
+      <workItem from="1655417503934" duration="26000" />
+      <workItem from="1655824064586" duration="36000" />
     </task>
     <task id="LOCAL-00001" summary="Restructured the project, moved a lot of unused code to an archive file">
       <created>1652321297616</created>
@@ -243,7 +251,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655324745669</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Added a missing conjugation on the disclination nnn hopping terms">
+      <created>1655393965453</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1655393965453</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -276,7 +291,7 @@
     <option name="LAST_COMMIT_MESSAGE" value="Added a missing conjugation on the disclination nnn hopping terms" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/tci_disclinations$disclination.coverage" NAME="disclination Coverage Results" MODIFIED="1652828025679" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/tci_disclinations$plots_for_the_paper.coverage" NAME="plots_for_the_paper Coverage Results" MODIFIED="1652739212443" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/tci_disclinations$disclination.coverage" NAME="disclination Coverage Results" MODIFIED="1652828025679" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
   </component>
 </project>

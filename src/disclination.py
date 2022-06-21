@@ -86,7 +86,6 @@ def number_of_sites(nx: int, disc_type='plaq'):
     return len(side_surface_indices(nx, disc_type))
 
 
-# TODO: Check the nnn stuff for 'site' disclinations
 def x_hopping_matrix(nx, disc_type='plaq', nnn=False):
     bottom_width, top_width, left_height, right_height = disclination_dimensions(nx, disc_type)
 

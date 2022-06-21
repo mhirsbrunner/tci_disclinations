@@ -9,7 +9,7 @@ def main(nz: int, nx: int, mass: float, disc_type: str, half_sign: int, spin: in
     phs_mass = np.min(np.abs((mass - 3, mass - 1, mass + 1, mass + 3)))
 
     print("Calculating disclination_rho for mass = ", mass)
-    fname = 'nx_{}_nz_{}_mass_{}_type_{}_half_{}_spin_{}'.format(nx, nz, mass, disc_type, half_sign, spin)
+    fname = 'nz_{}_nx_{}_mass_{}_type_{}_half_{}_spin_{}'.format(nz, nx, mass, disc_type, half_sign, spin)
 
     # date = datetime.now().strftime("%Y%m%d-%H%M%S")
     # fname = date + '-' + fname

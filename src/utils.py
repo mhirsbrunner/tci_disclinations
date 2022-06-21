@@ -2,8 +2,8 @@ import numpy as np
 import numpy.linalg as nlg
 from numpy import pi
 
-import cupy as cp
-import cupy.linalg as clg
+# import cupy as cp
+# import cupy.linalg as clg
 
 import matplotlib.pyplot as plt
 from mpl_toolkits import axes_grid1
@@ -127,55 +127,55 @@ def surface_green_function(energy, h00, h01, surf_pert=None, return_bulk=False):
         return gs
 
 
-def cp_surface_green_function(energy, h00, h01, surf_pert=None, return_bulk=False):
-    it_max = 20
-    tol = 1e-12
-
-    if surf_pert is None:
-        cp_surf_pert = cp.zeros(h00.shape)
-    else:
-        cp_surf_pert = cp.asarray(surf_pert)
-
-    energy_mat = energy * cp.identity(h00.shape[0])
-
-    eps_s = cp.asarray(h00)
-
-    eps = cp.copy(eps_s)
-
-    beta = cp.asarray(h01)
-    alpha = cp.conj(cp.transpose(beta))
-
-    it = 0
-    alpha_norm = 1
-    beta_norm = 1
-
-    while alpha_norm > tol or beta_norm > tol:
-        g0_alpha = clg.solve(energy_mat - eps, alpha)
-        g0_beta = clg.solve(energy_mat - eps, beta)
-
-        temp = cp.dot(alpha, g0_beta)
-        eps_s = eps_s + temp
-        eps = eps + temp + cp.dot(beta, g0_alpha)
-
-        alpha = cp.dot(alpha, g0_alpha)
-        beta = cp.dot(beta, g0_beta)
-
-        alpha_norm = clg.norm(alpha)
-        beta_norm = clg.norm(beta)
-
-        it += 1
-
-        if it > it_max:
-            print(f'Max iterations reached. alpha_norm: {alpha_norm}, beta_norm: {beta_norm}')
-            break
-
-    gs = cp.asnumpy(clg.inv(energy_mat - eps_s - cp_surf_pert))
-
-    if return_bulk:
-        gb = cp.asnumpy(clg.inv(energy_mat - eps))
-        return gs, gb
-    else:
-        return gs
+# def cp_surface_green_function(energy, h00, h01, surf_pert=None, return_bulk=False):
+#     it_max = 20
+#     tol = 1e-12
+#
+#     if surf_pert is None:
+#         cp_surf_pert = cp.zeros(h00.shape)
+#     else:
+#         cp_surf_pert = cp.asarray(surf_pert)
+#
+#     energy_mat = energy * cp.identity(h00.shape[0])
+#
+#     eps_s = cp.asarray(h00)
+#
+#     eps = cp.copy(eps_s)
+#
+#     beta = cp.asarray(h01)
+#     alpha = cp.conj(cp.transpose(beta))
+#
+#     it = 0
+#     alpha_norm = 1
+#     beta_norm = 1
+#
+#     while alpha_norm > tol or beta_norm > tol:
+#         g0_alpha = clg.solve(energy_mat - eps, alpha)
+#         g0_beta = clg.solve(energy_mat - eps, beta)
+#
+#         temp = cp.dot(alpha, g0_beta)
+#         eps_s = eps_s + temp
+#         eps = eps + temp + cp.dot(beta, g0_alpha)
+#
+#         alpha = cp.dot(alpha, g0_alpha)
+#         beta = cp.dot(beta, g0_beta)
+#
+#         alpha_norm = clg.norm(alpha)
+#         beta_norm = clg.norm(beta)
+#
+#         it += 1
+#
+#         if it > it_max:
+#             print(f'Max iterations reached. alpha_norm: {alpha_norm}, beta_norm: {beta_norm}')
+#             break
+#
+#     gs = cp.asnumpy(clg.inv(energy_mat - eps_s - cp_surf_pert))
+#
+#     if return_bulk:
+#         gb = cp.asnumpy(clg.inv(energy_mat - eps))
+#         return gs, gb
+#     else:
+#         return gs
 
 
 def spectral_function(g=None, ham=None, energy=None, eta=None) -> np.ndarray:
