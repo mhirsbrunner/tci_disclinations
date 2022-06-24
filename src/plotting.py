@@ -1,4 +1,7 @@
 import matplotlib.pyplot as plt
+from matplotlib.colors import ListedColormap
+import matplotlib.ticker as plticker
+
 import networkx as netx
 import src.utils as utils
 
@@ -9,6 +12,8 @@ from pathlib import Path
 import pickle as pkl
 from os import listdir
 from os.path import isfile, join
+
+import warnings
 
 # File structure
 project_src = Path(__file__).parent
@@ -118,13 +123,24 @@ def plot_band_structure(dk, mass, phs_mass, nnn=False, save=True, fig_fname='ban
 
 
 # TODO: Add code for site-centered disclinations
-def disclination_graph(nx: int):
+def disclination_graph(nx: int, disc_type='plaq'):
     graph = netx.Graph()
+
+    if disc_type.lower() == 'plaq':
+        if nx % 2 == 1:
+            raise ValueError('Plaquette-centered disclinations must have nx even.')
+        site_mod = 0
+    elif disc_type.lower() == 'site':
+        if nx % 2 == 0:
+            raise ValueError('Site-centered disclinations must have nx odd.')
+        site_mod = 1
+    else:
+        raise ValueError('Parameter "disc_type" must be either "plaq" or "site".')
 
     for ii in range(nx):
         for jj in range(nx):
             # x-hoppings
-            if jj < nx // 2:
+            if jj < nx // 2 + site_mod:
                 if ii < nx - 1:
                     graph.add_edge((ii, jj), (ii + 1, jj))
             else:
@@ -135,11 +151,11 @@ def disclination_graph(nx: int):
                 if jj < nx - 1:
                     graph.add_edge((ii, jj), (ii, jj + 1))
             else:
-                if jj < nx // 2 - 1:
+                if jj < nx // 2 - 1 + site_mod:
                     graph.add_edge((ii, jj), (ii, jj + 1))
 
     for ii in range(nx // 2):
-        graph.add_edge((nx // 2 + ii, nx // 2 - 1), (nx // 2 - 1, nx // 2 + ii))
+        graph.add_edge((nx // 2 + ii + site_mod, nx // 2 - 1 + site_mod), (nx // 2 - 1, nx // 2 + ii + site_mod))
 
     pos = netx.kamada_kawai_layout(graph)
 
@@ -160,42 +176,44 @@ def plot_disclination_rho(z_half='bottom', data_fname='ed_disclination_ldos', sa
 
     # Subtract background charge and calculate the total charge (mod 8)
     if half_sign is not None and half_sign != 0:
-        data = rho - 2 * nz // 2
-        print(f'Modded total charge: {(rho.sum() % (1 / 8)) * 8}')
+        data = rho - 2 * (nz // 2)
+        print(f'Total charge: {data.sum()}')
+        print(f'Modded total charge: {(np.abs(rho.sum()) % (1 / 8)) * 8}')
     else:
-        data = rho - 4 * nz // 2
-        print(f'Modded total charge: {(rho.sum() % (1 / 4)) * 4}')
+        data = rho - 4 * (nz // 2)
+        print(f'Total charge: {data.sum()}')
+        print(f'Modded total charge: {(np.abs(rho.sum()) % (1 / 4)) * 4}')
 
     normalized_data = data / np.max(np.abs(data))
-    # alpha_data = [np.min((x, 0.9)) for x in np.abs(normalized_data)]
     alpha_data = np.abs(normalized_data)
 
     # Generate list of lattice sites and positions
     x = []
     y = []
-    graph, pos = disclination_graph(nx)
+    graph, pos = disclination_graph(nx, disc_type)
 
-    for ii in range(nx):
-        for jj in range(nx):
-            if ii < nx // 2 or jj < nx // 2:
-                site = pos[ii, jj]
-                x.append(site[0])
-                y.append(site[1])
+    for site in list(graph.nodes):
+        coords = pos[site]
+        x.append(coords[0])
+        y.append(coords[1])
+
+    # Make colormap
+    cmap = plt.cm.bwr
+    my_cmap = cmap(np.arange(cmap.N // 2, cmap.N))
+    my_cmap[:, -1] = np.linspace(0, 1, cmap.N // 2)
+    my_cmap = ListedColormap(my_cmap)
 
     # Plot charge density
     fig, ax = plt.subplots(figsize=(6, 4))
 
     marker_scale = 250
-    im = ax.scatter(x, y, s=marker_scale * np.abs(normalized_data), c='red', marker='o',
-                    alpha=alpha_data, vmin=0)
-    # im = ax.scatter(x, y, s=marker_scale * np.abs(normalized_data), c=-normalized_data, cmap='magma', marker='o',
-    #                 vmin=-1, vmax=1)
+    im = ax.scatter(x, y, s=marker_scale * np.abs(normalized_data), c=np.abs(data), cmap=my_cmap, marker='o', vmin=0)
     ax.scatter(x, y, s=2, c='black')
     ax.set_aspect('equal')
 
-    # cbar = utils.add_colorbar(im, aspect=15, pad_fraction=1.0)
-    # cbar.ax.set_title(r'$|\rho|$', size=14)
-    # cbar.ax.tick_params(labelsize=14)
+    cbar = utils.add_colorbar(im, aspect=15, pad_fraction=1.0)
+    cbar.ax.set_title(r'$|\rho|$', size=14)
+    cbar.ax.tick_params(labelsize=14)
 
     ax.margins(x=0.2)
 
@@ -211,9 +229,9 @@ def plot_disclination_rho(z_half='bottom', data_fname='ed_disclination_ldos', sa
 
 def plot_charge_per_layer(data_fname='ed_disclination_ldos', save=True, fig_fname='ed_disclination_rho_z', ylim=None):
     rho, params = utils.load_results(data_fname)
-    nz, nx, mass, phs_mass, half_model, other_half, nnn = params
+    nz, nx, mass, phs_mass, disc_type, half_sign, spin = params
 
-    if half_model:
+    if half_sign is not None and half_sign != 0:
         norb = 2
     else:
         norb = 4
@@ -243,44 +261,66 @@ def plot_charge_per_layer(data_fname='ed_disclination_ldos', save=True, fig_fnam
     plt.show()
 
 
-def plot_q_vs_mass(data_folder_name: str, half_model: bool, other_half: bool, nnn: bool, mod=True, save=True,
+def plot_q_vs_mass(nz: int, nx: int, disc_type, half_sign, spinful: bool, data_folder_name=None, mod=True, save=True,
                    fig_fname="q_vs_mass", ylim=None):
-    if half_model:
+
+    if half_sign is not None and half_sign != 0:
         norb = 2
     else:
         norb = 4
 
-    masses = []
-    qs = []
+    mass_data = {}
 
-    filenames = [f for f in listdir(data_dir / data_folder_name) if isfile(join(data_dir / data_folder_name, f))]
+    if data_folder_name is not None:
+        data_location = data_dir / data_folder_name
+    else:
+        data_location = data_dir
+
+    filenames = [f for f in listdir(data_location) if isfile(join(data_location, f))]
 
     for fname in filenames:
-        with open(data_dir / data_folder_name / fname, 'rb') as handle:
+        with open(data_location / fname, 'rb') as handle:
             rho, params = pkl.load(handle)
 
-        nz, nx, mass, phs_mass, temp_half_model, temp_other_half, temp_nnn = params
+        temp_nz, temp_nx, mass, phs_mass, temp_disc_type, temp_half_sign, spin = params
 
-        if not(half_model == temp_half_model and other_half == temp_other_half and nnn == temp_nnn):
+        if temp_nz != nz or temp_nx != nx or temp_disc_type != disc_type or temp_half_sign != half_sign:
             continue
-
-        masses.append(mass)
 
         total_charge = np.sum(rho[:nz // 2] - norb)
 
-        if mod:
-            if half_model:
-                modded_total_charge = (total_charge % (1 / 8)) * 8
-            else:
-                modded_total_charge = (total_charge % (1 / 4)) * 4
-
-            # This line is a cheat to get the plots to look the way Julian wants
-            if modded_total_charge > 0.5:
-                modded_total_charge = 1 - modded_total_charge
-
-            qs.append(modded_total_charge)
+        if spinful:
+            if spin is None or spin == 0:
+                continue
+            mass_data[mass, spin] = total_charge
         else:
-            qs.append(total_charge)
+            if spin is not None and spin != 0:
+                continue
+            mass_data[mass] = total_charge
+
+    if spinful:
+        temp_data = {}
+
+        for key in mass_data:
+            # initialize spin-summed data dictionary
+            temp_data[key[0]] = 0
+
+            # check for missing spins missing their pairs
+            if (key[0], -key[1]) not in mass_data:
+                warnings.warn(f'Missing spin data for m={key[0]}!')
+
+        # Sum mass data over spins
+        for key in mass_data:
+            temp_data[key[0]] += mass_data[key]
+
+        mass_data = temp_data
+
+    masses = []
+    qs = []
+
+    for key in mass_data:
+        masses.append(key)
+        qs.append(mass_data[key])
 
     qs = [x for _, x in sorted(zip(masses, qs))]
     masses.sort()
@@ -288,7 +328,6 @@ def plot_q_vs_mass(data_folder_name: str, half_model: bool, other_half: bool, nn
     plt.style.use(styles_dir / 'line_plot.mplstyle')
     fig, ax = plt.subplots(figsize=(6, 4))
 
-    # ax.plot(masses, qs, 'o--', mec='red', mfc='red', color='k')
     ax.plot(masses, qs, 'r.')
 
     for m in [-3, -1, 1, 3]:
@@ -300,20 +339,15 @@ def plot_q_vs_mass(data_folder_name: str, half_model: bool, other_half: bool, nn
     ax.set_ylabel(r'$Q_0$')
     ax.grid(axis='y')
 
-    if half_model:
-        if mod:
-            ax.set_yticks((1.0, 0.5, 0.0))
-            ax.set_yticklabels(('1/8', '1/16', '0'))
-        else:
-            ax.set_yticks((0.1875, 0.125, 0.0625, 0.0, -0.0625, -0.125))
-            ax.set_yticklabels(('3/16', '1/8', '1/16', '0', '-1/6'))
+    if half_sign is not None and half_sign != 0:
+        tick_increment = 1/16
+    elif spinful:
+        tick_increment = 1/4
     else:
-        if mod:
-            ax.set_yticks((1.0, 0.5, 0.0))
-            ax.set_yticklabels(('1/4', '1/8', '0'))
-        else:
-            ax.set_yticks((0.375, 0.25, 0.125, 0.0, -0.125, -0.25))
-            ax.set_yticklabels(('3/8', '1/4', '1/8', '0', '-1/8', '-1/4'))
+        tick_increment = 1/8
+
+    loc = plticker.MultipleLocator(base=tick_increment)
+    ax.yaxis.set_major_locator(loc)
 
     if ylim is not None:
         ax.set_ylim(ylim)
@@ -327,73 +361,73 @@ def plot_q_vs_mass(data_folder_name: str, half_model: bool, other_half: bool, nn
     plt.show()
 
 
-def plot_q_vs_mass_summed_halves(data_folder_name: str, mod=True, save=True, fig_fname="q_vs_mass_summed_halves"):
-    norb = 2
-
-    masses_p = []
-    qs_p = []
-
-    masses_m = []
-    qs_m = []
-
-    filenames = [f for f in listdir(data_dir / data_folder_name) if isfile(join(data_dir / data_folder_name, f))]
-
-    for fname in filenames:
-        rho, params = utils.load_results(data_folder_name / fname)
-
-        nz, nx, mass, phs_mass, half_model, other_half = params
-
-        total_charge = np.sum(rho[:nz // 2] - norb)
-
-        if mod:
-            if half_model:
-                modded_total_charge = (total_charge % (1 / 8)) * 8
-            else:
-                modded_total_charge = (total_charge % (1 / 4)) * 4
-
-            temp_charge = modded_total_charge
-        else:
-            temp_charge = total_charge
-
-        if other_half:
-            masses_m.append(mass)
-            qs_m.append(temp_charge)
-        else:
-            masses_p.append(mass)
-            qs_p.append(temp_charge)
-
-    qs_p = [x for _, x in sorted(zip(masses_p, qs_p))]
-    qs_m = [x for _, x in sorted(zip(masses_m, qs_m))]
-    masses = masses_m.sort()
-
-    qs = [a + b for a, b in zip(qs_p, qs_m)]
-
-    plt.style.use(styles_dir / 'line_plot.mplstyle')
-    fig, ax = plt.subplots(figsize=(6, 4))
-
-    # ax.plot(masses, qs, 'o--', mec='red', mfc='red', color='k')
-    ax.plot(masses, qs, 'r.')
-
-    ax.set_xlabel(r'$M$')
-    ax.set_xticks((-3, -1, 0, 1, 3))
-    for m in [-3, -1, 1, 3]:
-        plt.axvline(x=m, color='k', linewidth=2, linestyle='--')
-
-    ax.set_ylabel(r'$Q(M)$')
-    if mod:
-        ax.set_yticks((0.25, 0.125, 0.0))
-        ax.set_yticklabels(('1/4', '1/8', '0'))
-    else:
-        ax.set_yticks((0.375, 0.25, 0.125, 0.0, -0.125, -0.25))
-        ax.set_yticklabels(('3/8', '1/4', '1/8', '0', '-1/8', '-1/4'))
-
-    plt.tight_layout()
-
-    if save:
-        plt.savefig(figure_dir / (fig_fname + '.pdf'))
-        plt.savefig(figure_dir / (fig_fname + '.png'))
-
-    plt.show()
+# def plot_q_vs_mass_summed_halves(data_folder_name: str, mod=True, save=True, fig_fname="q_vs_mass_summed_halves"):
+#     norb = 2
+#
+#     masses_p = []
+#     qs_p = []
+#
+#     masses_m = []
+#     qs_m = []
+#
+#     filenames = [f for f in listdir(data_dir / data_folder_name) if isfile(join(data_dir / data_folder_name, f))]
+#
+#     for fname in filenames:
+#         rho, params = utils.load_results(data_folder_name / fname)
+#
+#         nz, nx, mass, phs_mass, half_model, other_half = params
+#
+#         total_charge = np.sum(rho[:nz // 2] - norb)
+#
+#         if mod:
+#             if half_model:
+#                 modded_total_charge = (total_charge % (1 / 8)) * 8
+#             else:
+#                 modded_total_charge = (total_charge % (1 / 4)) * 4
+#
+#             temp_charge = modded_total_charge
+#         else:
+#             temp_charge = total_charge
+#
+#         if other_half:
+#             masses_m.append(mass)
+#             qs_m.append(temp_charge)
+#         else:
+#             masses_p.append(mass)
+#             qs_p.append(temp_charge)
+#
+#     qs_p = [x for _, x in sorted(zip(masses_p, qs_p))]
+#     qs_m = [x for _, x in sorted(zip(masses_m, qs_m))]
+#     masses = masses_m.sort()
+#
+#     qs = [a + b for a, b in zip(qs_p, qs_m)]
+#
+#     plt.style.use(styles_dir / 'line_plot.mplstyle')
+#     fig, ax = plt.subplots(figsize=(6, 4))
+#
+#     # ax.plot(masses, qs, 'o--', mec='red', mfc='red', color='k')
+#     ax.plot(masses, qs, 'r.')
+#
+#     ax.set_xlabel(r'$M$')
+#     ax.set_xticks((-3, -1, 0, 1, 3))
+#     for m in [-3, -1, 1, 3]:
+#         plt.axvline(x=m, color='k', linewidth=2, linestyle='--')
+#
+#     ax.set_ylabel(r'$Q(M)$')
+#     if mod:
+#         ax.set_yticks((0.25, 0.125, 0.0))
+#         ax.set_yticklabels(('1/4', '1/8', '0'))
+#     else:
+#         ax.set_yticks((0.375, 0.25, 0.125, 0.0, -0.125, -0.25))
+#         ax.set_yticklabels(('3/8', '1/4', '1/8', '0', '-1/8', '-1/4'))
+#
+#     plt.tight_layout()
+#
+#     if save:
+#         plt.savefig(figure_dir / (fig_fname + '.pdf'))
+#         plt.savefig(figure_dir / (fig_fname + '.png'))
+#
+#     plt.show()
 
 
 def plot_open_z_bands(data_fname='open_z_bands', fig_fname='open_z_bands', save=True):

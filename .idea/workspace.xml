@@ -4,15 +4,183 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bd204b8d-d8aa-4d5c-a773-0647fa2f349e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/data/nz_12_nx_12_mass_-2.0_type_plaq_half_1_spin_0.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/nz_12_nx_12_mass_0.0_type_plaq_half_1_spin_0.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/nz_12_nx_12_mass_2.0_type_plaq_half_1_spin_0.pickle" afterDir="false" />
+    <list default="true" id="bd204b8d-d8aa-4d5c-a773-0647fa2f349e" name="Changes" comment="Added a missing conjugation on the disclination nnn hopping terms">
+      <change afterPath="$PROJECT_DIR$/figures/ed_disclination_rho_z.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figures/ed_disclination_rho_z.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cc_main_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/cc_main_script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/disclination.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/disclination.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_10_nz_10_mass_-2.0_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_10_nz_10_mass_-4.0_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_10_nz_10_mass_2.0_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_10_nz_10_mass_2.0_half_True_other_False_nnn_False.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_10_nz_10_mass_4.0_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_12_nz_12_mass_2.0_half_True_other_False_nnn_False.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_14_nz_14_mass_2.0_half_True_other_False_nnn_False.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-0.1_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-0.1_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-0.2_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-0.2_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-0.3_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-0.3_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-0.4_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-0.4_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-0.5_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-0.5_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-0.6_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-0.6_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-0.7_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-0.7_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-0.8_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-0.8_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-0.9_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-0.9_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-1.1_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-1.1_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-1.2_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-1.2_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-1.3_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-1.3_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-1.4_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-1.4_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-1.5_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-1.5_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-1.6_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-1.6_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-1.7_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-1.7_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-1.8_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-1.8_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-1.9_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-1.9_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-2.0_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-2.0_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-2.0_type_plaq_half_0_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-2.1_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-2.1_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-2.2_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-2.2_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-2.3_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-2.3_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-2.4_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-2.4_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-2.5_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-2.5_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-2.6_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-2.6_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-2.7_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-2.7_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-2.8_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-2.8_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-2.9_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-2.9_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-3.1_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-3.1_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-3.2_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-3.2_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-3.3_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-3.3_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-3.4_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-3.4_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-3.5_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-3.5_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-3.6_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-3.6_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-3.7_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-3.7_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-3.8_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-3.8_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-3.9_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-3.9_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-4.0_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-4.0_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_0.0_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_0.0_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_0.0_type_plaq_half_0_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_0.1_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_0.1_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_0.2_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_0.2_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_0.3_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_0.3_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_0.4_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_0.4_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_0.5_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_0.5_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_0.6_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_0.6_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_0.7_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_0.7_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_0.8_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_0.8_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_0.9_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_0.9_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_1.1_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_1.1_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_1.2_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_1.2_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_1.3_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_1.3_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_1.4_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_1.4_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_1.5_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_1.5_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_1.6_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_1.6_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_1.7_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_1.7_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_1.8_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_1.8_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_1.9_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_1.9_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_2.0_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_2.0_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_2.0_type_plaq_half_0_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_2.1_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_2.1_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_2.2_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_2.2_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_2.3_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_2.3_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_2.4_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_2.4_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_2.5_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_2.5_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_2.6_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_2.6_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_2.7_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_2.7_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_2.8_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_2.8_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_2.9_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_2.9_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_3.1_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_3.1_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_3.2_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_3.2_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_3.3_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_3.3_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_3.4_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_3.4_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_3.5_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_3.5_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_3.6_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_3.6_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_3.7_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_3.7_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_3.8_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_3.8_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_3.9_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_3.9_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_4.0_half_False_other_False_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_4.0_half_False_other_False_spin_1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/open_z_bands.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/open_z_dos_no_phs.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/open_z_dos_phs.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/plaq_test.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/site_test.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/test.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/ed_disclination_rho.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/figures/ed_disclination_rho.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/ed_disclination_rho.png" beforeDir="false" afterPath="$PROJECT_DIR$/figures/ed_disclination_rho.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/plotting.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/plotting.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,8 +211,9 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -137,7 +306,10 @@
       <workItem from="1655393743643" duration="846000" />
       <workItem from="1655409474365" duration="3702000" />
       <workItem from="1655417503934" duration="26000" />
-      <workItem from="1655824064586" duration="36000" />
+      <workItem from="1655824064586" duration="2150000" />
+      <workItem from="1655839576726" duration="331000" />
+      <workItem from="1655917645126" duration="18000" />
+      <workItem from="1656093515820" duration="6943000" />
     </task>
     <task id="LOCAL-00001" summary="Restructured the project, moved a lot of unused code to an archive file">
       <created>1652321297616</created>
