@@ -66,7 +66,7 @@ def plot_band_structure(dk, mass, phs_mass, nnn=False, save=True, fig_fname='ban
     k0 = hsps[0]
     k1 = hsps[1]
 
-    dist = np.sqrt(np.sum((np.array(k1)-np.array(k0)) ** 2))
+    dist = np.sqrt(np.sum((np.array(k1) - np.array(k0)) ** 2))
     nk = int(dist // dk)
     kx = np.linspace(k0[0], k1[0], nk)
     ky = np.linspace(k0[1], k1[1], nk)
@@ -78,7 +78,7 @@ def plot_band_structure(dk, mass, phs_mass, nnn=False, save=True, fig_fname='ban
         k0 = k1
         k1 = k
 
-        dist = np.sqrt(np.sum((np.array(k1)-np.array(k0)) ** 2))
+        dist = np.sqrt(np.sum((np.array(k1) - np.array(k0)) ** 2))
         nk = int(dist // dk)
         kx = np.concatenate((kx, np.linspace(k0[0], k1[0], nk + 1)[1:]))
         ky = np.concatenate((ky, np.linspace(k0[1], k1[1], nk + 1)[1:]))
@@ -122,7 +122,6 @@ def plot_band_structure(dk, mass, phs_mass, nnn=False, save=True, fig_fname='ban
     return
 
 
-# TODO: Add code for site-centered disclinations
 def disclination_graph(nx: int, disc_type='plaq'):
     graph = netx.Graph()
 
@@ -162,7 +161,8 @@ def disclination_graph(nx: int, disc_type='plaq'):
     return graph, pos
 
 
-def plot_disclination_rho(z_half='bottom', data_fname='ed_disclination_ldos', save=True, fig_fname='ed_disclination_rho'):
+def plot_disclination_rho(z_half='bottom', data_fname='ed_disclination_ldos', save=True,
+                          fig_fname='ed_disclination_rho', close_disc=True):
     results, params = utils.load_results(data_fname)
     nz, nx, mass, phs_mass, disc_type, half_sign, spin = params
 
@@ -192,8 +192,15 @@ def plot_disclination_rho(z_half='bottom', data_fname='ed_disclination_ldos', sa
     y = []
     graph, pos = disclination_graph(nx, disc_type)
 
-    for site in list(graph.nodes):
-        coords = pos[site]
+    # Order the node list by the x index so the plot makes sense
+    ordered_nodes = list(graph.nodes)
+    ordered_nodes.sort(key=lambda s: s[1])
+
+    for site in ordered_nodes:
+        if close_disc:
+            coords = pos[site]
+        else:
+            coords = site
         x.append(coords[0])
         y.append(coords[1])
 
@@ -207,7 +214,10 @@ def plot_disclination_rho(z_half='bottom', data_fname='ed_disclination_ldos', sa
     fig, ax = plt.subplots(figsize=(6, 4))
 
     marker_scale = 250
-    im = ax.scatter(x, y, s=marker_scale * np.abs(normalized_data), c=np.abs(data), cmap=my_cmap, marker='o', vmin=0)
+    # im = ax.scatter(x, y, s=marker_scale * np.abs(normalized_data), c=np.abs(data), cmap=my_cmap, marker='o', vmin=0)
+    dmax = np.max(np.abs(data))
+    im = ax.scatter(x, y, s=marker_scale * np.abs(normalized_data), c=data, cmap='bwr', marker='o', vmax=dmax,
+                    vmin=-dmax)
     ax.scatter(x, y, s=2, c='black')
     ax.set_aspect('equal')
 
@@ -263,7 +273,6 @@ def plot_charge_per_layer(data_fname='ed_disclination_ldos', save=True, fig_fnam
 
 def plot_q_vs_mass(nz: int, nx: int, disc_type, half_sign, spinful: bool, data_folder_name=None, mod=True, save=True,
                    fig_fname="q_vs_mass", ylim=None):
-
     if half_sign is not None and half_sign != 0:
         norb = 2
     else:
@@ -340,11 +349,11 @@ def plot_q_vs_mass(nz: int, nx: int, disc_type, half_sign, spinful: bool, data_f
     ax.grid(axis='y')
 
     if half_sign is not None and half_sign != 0:
-        tick_increment = 1/16
+        tick_increment = 1 / 16
     elif spinful:
-        tick_increment = 1/4
+        tick_increment = 1 / 4
     else:
-        tick_increment = 1/8
+        tick_increment = 1 / 8
 
     loc = plticker.MultipleLocator(base=tick_increment)
     ax.yaxis.set_major_locator(loc)
