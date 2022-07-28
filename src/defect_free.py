@@ -31,7 +31,7 @@ gamma_z = np.kron(sigma_z, sigma_z)
 gamma_5 = np.kron(sigma_z, sigma_y)
 
 
-def open_z_hamiltonian(kx: float, ky: float, nz: int, mass: float, phs_mass: float):
+def open_z_hamiltonian(kx: float, ky: float, nz: int, mass: float, phs_mass: float, mirror_sym=False):
     norb = 8
 
     h_0 = np.zeros((norb, norb), dtype=complex)
@@ -48,8 +48,13 @@ def open_z_hamiltonian(kx: float, ky: float, nz: int, mass: float, phs_mass: flo
     h_z += 1j / 2 * sin(kx) * np.kron(gamma_0, sigma_x) + 1j / 2 * sin(ky) * np.kron(gamma_0, sigma_y)
 
     h = np.kron(np.identity(nz), np.array(h_0))
+
+    if mirror_sym:
+        mirror_factor = -1
+    else:
+        mirror_factor = 1
     h[:norb, :norb] += h_0_phs
-    h[-norb:, -norb:] += h_0_phs
+    h[-norb:, -norb:] += mirror_factor * h_0_phs
     h += np.kron(np.diag(np.ones(nz - 1), k=1), h_z)
     h += np.kron(np.diag(np.ones(nz - 1), k=-1), h_z.conj().T)
 
@@ -89,7 +94,7 @@ def calculate_open_z_dos(nz: int, dk: float, mass: float, phs_mass: float, energ
             dos[jj, ii] = np.sum(np.diag(a)) / (2 * pi)
 
     results = dos
-    params = (nz, mass, phs_mass, energy_axis, eta, ks, k_nodes)
+    params = (nz, mass, phs_mass, energy_axis, eta, ks, k_nodes, True)
     data = (results, params)
 
     with open(data_dir / (fname + '.pickle'), 'wb') as handle:

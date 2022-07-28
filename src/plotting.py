@@ -249,19 +249,24 @@ def plot_charge_per_layer(data_fname='ed_disclination_ldos', save=True, fig_fnam
     data = np.sum(rho - norb, axis=1)
 
     plt.style.use(styles_dir / 'line_plot.mplstyle')
-    fig, ax = plt.subplots(figsize=(6, 4))
-    ax.plot(np.arange(len(data)) + 1, np.zeros_like(data), 'bo-')
-    ax.plot(np.arange(len(data)) + 1, data, 'ro-', fillstyle='none', markersize=8, markeredgewidth=2)
 
-    ax.set_xticks((1, len(data) // 2, len(data)))
+    fig, ax = plt.subplots(2, 1, figsize=(6, 8))
+    ax[0].plot(np.arange(len(data) + 2), np.zeros(len(data) + 2), 'k--')
+    ax[0].plot(np.arange(len(data)) + 1, np.zeros(len(data)), 'ro-', fillstyle='none', markersize=8, markeredgewidth=2)
 
-    ax.set_ylabel(r'$Q(z)$')
-    ax.set_xlabel(r'$z$')
+    ax[1].plot(np.arange(len(data) + 2), np.zeros(len(data) + 2), 'k--')
+    ax[1].plot(np.arange(len(data)) + 1, data, 'ro-', fillstyle='none', markersize=8, markeredgewidth=2)
 
-    if ylim is not None:
-        ax.set_ylim((-ylim, ylim))
+    for axis in ax:
+        axis.set_xticks((1, len(data)))
 
-    plt.margins(x=0.05)
+        axis.set_ylabel(r'$Q(z)$')
+        axis.set_xlabel(r'$z$')
+
+        if ylim is not None:
+            axis.set_ylim((-ylim, ylim))
+
+    # plt.margins(x=0.05)
     plt.tight_layout()
 
     if save:
@@ -475,8 +480,8 @@ def plot_open_z_dos(data_fname='open_z_dos', fig_fname='open_z_dos', save=True, 
     results, params = utils.load_results(data_fname)
 
     dos = results
-    nz, mass, phs_mass, energy_axis, eta, ks, k_nodes, nnn = params
-
+    # nz, mass, phs_mass, energy_axis, eta, ks, k_nodes, nnn = params
+    nz, mass, phs_mass, energy_axis, eta, ks, k_nodes = params
     labels = (r'$Y$', r'$\Gamma$', r'$X$', r'$M$')
 
     plt.style.use(styles_dir / 'bands.mplstyle')
@@ -498,6 +503,63 @@ def plot_open_z_dos(data_fname='open_z_dos', fig_fname='open_z_dos', save=True, 
 
     ax.set_yticks((-1, len(energy_axis)))
     ax.set_yticklabels((energy_axis[0], energy_axis[-1]))
+
+    plt.tight_layout()
+
+    if save:
+        plt.savefig(figure_dir / (fig_fname + '.pdf'))
+        plt.savefig(figure_dir / (fig_fname + '.png'))
+
+    plt.show()
+
+
+def plot_defect_free_rho(fig_fname='defect_free_rho', save=True):
+    data_fname = 'defect_free_rho'
+
+    with open(data_dir / (data_fname + '.pickle'), 'rb') as handle:
+        data = pkl.load(handle)
+
+    results, params = data
+    rho = 2 * (results - 4)
+    nx, mass, hoti_mass = params
+
+    print(f'Corner charge (0, 0, 0): {np.sum(rho[:5, :5, :5])}')
+    print(f'Corner charge (1, 0, 0): {np.sum(rho[5:, :5, :5])}')
+    print(f'Corner charge (0, 1, 0): {np.sum(rho[:5, 5:, :5])}')
+    print(f'Corner charge (1, 1, 0): {np.sum(rho[5:, 5:, :5])}')
+    print(f'Corner charge (0, 0, 1): {np.sum(rho[:5, :5, 5:])}')
+    print(f'Corner charge (1, 0, 1): {np.sum(rho[5:, :5, 5:])}')
+    print(f'Corner charge (0, 1, 1): {np.sum(rho[:5, 5:, 5:])}')
+    print(f'Corner charge (1, 1, 1): {np.sum(rho[5:, 5:, 5:])}')
+
+    dmax = np.max(np.abs(rho))
+
+    x, y, z = rho.nonzero()
+
+    cmap = plt.cm.bwr
+    my_cmap = cmap(np.arange(0, cmap.N // 2))
+    my_cmap[:, -1] = np.linspace(1, 0, cmap.N // 2)
+    my_cmap = ListedColormap(my_cmap)
+
+    plt.style.use(styles_dir / 'line_plot.mplstyle')
+
+    fig = plt.figure(figsize=(6, 4))
+    ax = plt.axes(projection='3d')
+
+    ax.view_init(20, 60)
+
+    p = ax.scatter(x, y, z, c=rho, cmap=my_cmap, vmax=0, vmin=-dmax)
+    ax.grid(True)
+
+    ax.set_xticks(())
+    ax.set_yticks(())
+    ax.set_zticks(())
+
+    ax.set_xlabel('X')
+    ax.set_ylabel('Y')
+    ax.set_zlabel('Z')
+
+    cp = fig.colorbar(p)
 
     plt.tight_layout()
 

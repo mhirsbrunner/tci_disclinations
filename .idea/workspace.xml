@@ -4,12 +4,43 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bd204b8d-d8aa-4d5c-a773-0647fa2f349e" name="Changes" comment="Fixed up more of the plotting functions to work with the changes to plaquette types and data storage">
-      <change afterPath="$PROJECT_DIR$/figures/q_vs_mass.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/figures/q_vs_mass.png" afterDir="false" />
+    <list default="true" id="72ec4185-671d-4b57-afa5-9a1c1269f822" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/data/defect_free_rho.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/open_z_dos.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figures/charge_density_m_-1.2.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figures/charge_density_m_-1.2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figures/charge_per_layer.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figures/charge_per_layer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figures/charge_per_layer_m_-1.2.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figures/charge_per_layer_m_-1.2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figures/charge_per_layer_no_disc.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figures/charge_per_layer_no_disc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figures/defect_free_rho.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figures/defect_free_rho.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figures/open_z_dos.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figures/open_z_dos.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figures/q_vs_m_spinful.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figures/q_vs_m_spinful.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figures/q_vs_m_spinless.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figures/q_vs_m_spinless.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/other.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/tci_disclinations.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/tci_disclinations.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-2.0_type_plaq_half_0_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_0.0_type_plaq_half_0_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_2.0_type_plaq_half_0_spin_-1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nz_12_nx_12_mass_-2.0_type_plaq_half_1_spin_0.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nz_12_nx_12_mass_0.0_type_plaq_half_1_spin_0.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nz_12_nx_12_mass_2.0_type_plaq_half_1_spin_0.pickle" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/figures/ed_disclination_rho.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/figures/ed_disclination_rho.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/figures/ed_disclination_rho.png" beforeDir="false" afterPath="$PROJECT_DIR$/figures/ed_disclination_rho.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/ed_disclination_rho_z.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/figures/ed_disclination_rho_z.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/ed_disclination_rho_z.png" beforeDir="false" afterPath="$PROJECT_DIR$/figures/ed_disclination_rho_z.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/q_vs_mass.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/figures/q_vs_mass.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/q_vs_mass.png" beforeDir="false" afterPath="$PROJECT_DIR$/figures/q_vs_mass.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/defect_free.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/defect_free.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/disclination.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/disclination.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/plotting.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/plotting.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -17,11 +48,15 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Python Script" />
-      </list>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
     </option>
   </component>
   <component name="Git.Settings">
@@ -30,33 +65,17 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="292XpTjPDZVoV1nejNEn5fQ4uQO" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="2Bzc1NdFPrE8unLla4ztGhUDx5b" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../NASA/Krylov VQE" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="C:\Users\mark\PycharmProjects\tci_disclinations\src" />
-      <recent name="D:\Mark\Dropbox\Hughes Group Research\Projects\Geometry-Charge Response in 3D TCIs\tci_disclinations" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/archive" />
-      <recent name="D:\Mark\Dropbox\Hughes Group Research\Projects\Geometry-Charge Response in 3D TCIs\tci_disclinations\data\archive" />
-    </key>
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "WebServerToolWindowFactoryState": "true",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  }
+}]]></component>
   <component name="RunManager">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="tci_disclinations" />
@@ -80,234 +99,36 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="plots_for_the_paper" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="tci_disclinations" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/plots_for_the_paper.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Python.plots_for_the_paper" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="bd204b8d-d8aa-4d5c-a773-0647fa2f349e" name="Changes" comment="" />
-      <created>1652312337215</created>
+      <changelist id="72ec4185-671d-4b57-afa5-9a1c1269f822" name="Changes" comment="" />
+      <created>1657912137432</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1652312337215</updated>
-      <workItem from="1652312339228" duration="2909000" />
-      <workItem from="1652321658596" duration="25000" />
-      <workItem from="1652321873115" duration="726000" />
-      <workItem from="1652406200676" duration="3000" />
-      <workItem from="1652456059396" duration="13364000" />
-      <workItem from="1652663340662" duration="1497000" />
-      <workItem from="1652715472484" duration="11000" />
-      <workItem from="1652716959554" duration="1898000" />
-      <workItem from="1652726044197" duration="89000" />
-      <workItem from="1653936626887" duration="2311000" />
-      <workItem from="1654288422397" duration="5189000" />
-      <workItem from="1654646361524" duration="1469000" />
-      <workItem from="1654648574461" duration="3233000" />
-      <workItem from="1655134087033" duration="5110000" />
-      <workItem from="1655209985390" duration="4144000" />
-      <workItem from="1655215179735" duration="5441000" />
-      <workItem from="1655240020822" duration="57000" />
-      <workItem from="1655305742300" duration="3013000" />
-      <workItem from="1655393743643" duration="846000" />
-      <workItem from="1655409474365" duration="3702000" />
-      <workItem from="1655417503934" duration="26000" />
-      <workItem from="1655824064586" duration="2150000" />
-      <workItem from="1655839576726" duration="331000" />
-      <workItem from="1655917645126" duration="18000" />
-      <workItem from="1656093515820" duration="6967000" />
-      <workItem from="1656106154739" duration="292000" />
-      <workItem from="1656107731729" duration="135000" />
-      <workItem from="1656107882850" duration="128000" />
-      <workItem from="1656278360332" duration="6755000" />
-      <workItem from="1656285637054" duration="1549000" />
+      <updated>1657912137432</updated>
+      <workItem from="1657912168697" duration="12000" />
+      <workItem from="1658078290599" duration="24000" />
+      <workItem from="1658078317279" duration="150000" />
+      <workItem from="1658079171739" duration="16000" />
+      <workItem from="1658079188415" duration="617000" />
+      <workItem from="1658081092458" duration="975000" />
+      <workItem from="1658154414790" duration="35000" />
+      <workItem from="1658261433948" duration="463000" />
+      <workItem from="1658265489947" duration="849000" />
+      <workItem from="1658418846364" duration="2026000" />
+      <workItem from="1658431341941" duration="2958000" />
+      <workItem from="1658439738907" duration="612000" />
+      <workItem from="1658449510790" duration="2423000" />
+      <workItem from="1658499179815" duration="15000" />
+      <workItem from="1658776666806" duration="6475000" />
+      <workItem from="1658871239998" duration="10000" />
+      <workItem from="1659024266859" duration="9450000" />
     </task>
-    <task id="LOCAL-00001" summary="Restructured the project, moved a lot of unused code to an archive file">
-      <created>1652321297616</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1652321297616</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Committing unversioned files, mostly data and figures">
-      <created>1652321458614</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1652321458614</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Modified scripts and calculation functions to allow a choice between CPU and GPU computing. Needed this to allow use on both the DELTA cluster and the Campus Cluster">
-      <created>1652322109730</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1652322109730</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Modified scripts and calculation functions to allow a choice between CPU and GPU computing. Needed this to allow use on both the DELTA cluster and the Campus Cluster">
-      <created>1652322268098</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1652322268098</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Added SBATCH files for the campus cluster&#10;&#10;Added next-nearest neighbor hoppings option for the full model">
-      <created>1652465031152</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1652465031152</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Added SBATCH files for the campus cluster&#10;&#10;Added next-nearest neighbor hoppings option for the full model">
-      <created>1652471585011</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1652471585011</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Archived all existing data&#10;&#10;Removed campus cluster scripts&#10;&#10;Added testing and numbered scripts to be executed on the Delta cluster">
-      <created>1652664188730</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1652664188730</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Added code to redirected std out and error">
-      <created>1652717957423</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1652717957423</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Added code to redirected std out and error">
-      <created>1654293479790</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1654293479790</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Major restructuring. Combined the two disclination modules into a single module. Added functions for generating number of sites, hopping matrices, surface site indices, etc for both disclination types. Modified the half_model and other_half variables to function the same way as the spin variable. Modified the way data is saved to match these changes.&#10;&#10;Still need to modify the plotting functions to work with the new data format, etc. Need to run verification on all disclination types.">
-      <created>1655215380834</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1655215380834</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Modified the hopping matrix functions to allow turning off some elements for NNN hopping to enforce rotation symmetry in site-centered disclinations.">
-      <created>1655222325999</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1655222325999</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Added scripts for running code on the campus cluster">
-      <created>1655227045124</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1655227045124</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Fixed small issue with &quot;half_sign&quot; implementation">
-      <created>1655306729095</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1655306729095</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Fixed small issue with &quot;half_sign&quot; implementation">
-      <created>1655307428346</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1655307428346</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Fixed small issue with &quot;half_sign&quot; implementation">
-      <created>1655307660984</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1655307660984</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Added a missing conjugation on the disclination nnn hopping terms">
-      <created>1655324745669</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1655324745669</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Added a missing conjugation on the disclination nnn hopping terms">
-      <created>1655393965453</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1655393965453</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Fixed up more of the plotting functions to work with the changes to plaquette types and data storage">
-      <created>1656105672272</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1656105672272</updated>
-    </task>
-    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Restructured the project, moved a lot of unused code to an archive file" />
-    <MESSAGE value="Committing unversioned files, mostly data and figures" />
-    <MESSAGE value="Modified scripts and calculation functions to allow a choice between CPU and GPU computing. Needed this to allow use on both the DELTA cluster and the Campus Cluster" />
-    <MESSAGE value="Added SBATCH files for the campus cluster&#10;&#10;Added next-nearest neighbor hoppings option for the full model" />
-    <MESSAGE value="Archived all existing data&#10;&#10;Removed campus cluster scripts&#10;&#10;Added testing and numbered scripts to be executed on the Delta cluster" />
-    <MESSAGE value="Added code to redirected std out and error" />
-    <MESSAGE value="Major restructuring. Combined the two disclination modules into a single module. Added functions for generating number of sites, hopping matrices, surface site indices, etc for both disclination types. Modified the half_model and other_half variables to function the same way as the spin variable. Modified the way data is saved to match these changes.&#10;&#10;Still need to modify the plotting functions to work with the new data format, etc. Need to run verification on all disclination types." />
-    <MESSAGE value="Modified the hopping matrix functions to allow turning off some elements for NNN hopping to enforce rotation symmetry in site-centered disclinations." />
-    <MESSAGE value="Added scripts for running code on the campus cluster" />
-    <MESSAGE value="Fixed small issue with &quot;half_sign&quot; implementation" />
-    <MESSAGE value="Added a missing conjugation on the disclination nnn hopping terms" />
-    <MESSAGE value="Fixed up more of the plotting functions to work with the changes to plaquette types and data storage" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed up more of the plotting functions to work with the changes to plaquette types and data storage" />
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/tci_disclinations$plots_for_the_paper.coverage" NAME="plots_for_the_paper Coverage Results" MODIFIED="1652739212443" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
-    <SUITE FILE_PATH="coverage/tci_disclinations$disclination.coverage" NAME="disclination Coverage Results" MODIFIED="1652828025679" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
   </component>
 </project>
