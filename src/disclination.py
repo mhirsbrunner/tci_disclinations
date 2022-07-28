@@ -211,6 +211,7 @@ def disclination_hamiltonian_blocks(nx: int, mass: float, phs_mass: float, disc_
         x_hopping = x_hopping_matrix(nx, disc_type, nnn=True)
         h00 += np.kron(x_hopping, h_x) + np.kron(x_hopping, h_x).conj().T
 
+        # Add cos hoppings to the disclination core
         core_hopping = x_hopping_matrix(nx, disc_type, nnn=False) - x_hopping_matrix(nx, disc_type, nnn=True)
         h00 += np.kron(core_hopping, h_core) + np.kron(core_hopping, h_core).conj().T
 
@@ -222,6 +223,7 @@ def disclination_hamiltonian_blocks(nx: int, mass: float, phs_mass: float, disc_
         y_hopping = y_hopping_matrix(nx, disc_type, nnn=True)
         h00 += np.kron(y_hopping, h_y) + np.kron(y_hopping, h_y).conj().T
 
+        # Add cos hoppings to the disclination core
         core_hopping = y_hopping_matrix(nx, disc_type, nnn=False) - y_hopping_matrix(nx, disc_type, nnn=True)
         h00 += 2 * np.kron(core_hopping, h_core) + 2 * np.kron(core_hopping, h_core).conj().T
 
@@ -246,36 +248,6 @@ def disclination_hamiltonian_blocks(nx: int, mass: float, phs_mass: float, disc_
 
         h01 += (np.kron(disc_hopping, h_disc_nnn) -
                 np.kron(disc_hopping.T, h_disc_nnn))
-
-    # Remove sin hoppings to the disclination core
-    if disc_type.lower() == 'site':
-        bottom_width, top_width, left_height, right_height = disclination_dimensions(nx, disc_type)
-
-        r0_ind = bottom_width * (right_height - 1) + top_width
-
-        r0_mx = r0_ind - 1
-        r0_px = r0_ind + 1
-        r0_my = r0_ind - bottom_width
-
-        h_core = 1 / 2 * np.kron(gamma_0, sigma_z)
-
-        # h00[r0_ind * norb:(r0_ind + 1) * norb, r0_mx * norb:(r0_mx + 1) * norb] = h_temp
-        # h00[r0_mx * norb:(r0_mx + 1) * norb, r0_ind * norb:(r0_ind + 1) * norb] = h_temp.conj().T
-
-        # h00[r0_px * norb:(r0_px + 1) * norb, r0_ind * norb:(r0_ind + 1) * norb] = h_temp
-        # h00[r0_ind * norb:(r0_ind + 1) * norb, r0_px * norb:(r0_px + 1) * norb] = h_temp.conj().T
-
-        # h00[r0_ind * norb:(r0_ind + 1) * norb, r0_my * norb:(r0_my + 1) * norb] = h_temp
-        # h00[r0_my * norb:(r0_my + 1) * norb, r0_ind * norb:(r0_ind + 1) * norb] = h_temp.conj().T
-
-        # h00[r0_ind * norb:(r0_ind + 1) * norb, r0_mx * norb:(r0_mx + 1) * norb] = np.zeros((8, 8))
-        # h00[r0_mx * norb:(r0_mx + 1) * norb, r0_ind * norb:(r0_ind + 1) * norb] = np.zeros((8, 8))
-
-        # h00[r0_px * norb:(r0_px + 1) * norb, r0_ind * norb:(r0_ind + 1) * norb] = np.zeros((8, 8))
-        # h00[r0_ind * norb:(r0_ind + 1) * norb, r0_px * norb:(r0_px + 1) * norb] = np.zeros((8, 8))
-
-        # h00[r0_ind * norb:(r0_ind + 1) * norb, r0_my * norb:(r0_my + 1) * norb] = np.zeros((8, 8))
-        # h00[r0_my * norb:(r0_my + 1) * norb, r0_ind * norb:(r0_ind + 1) * norb] = np.zeros((8, 8))
 
     return h00, h01
 
