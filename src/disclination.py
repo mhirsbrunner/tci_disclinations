@@ -242,7 +242,8 @@ def disclination_hamiltonian_blocks(nx: int, mass: float, phs_mass: float, disc_
         h_xz = -1 / 4 * np.kron(gamma_0, sigma_x)
         h_yz = -1 / 4 * np.kron(gamma_0, sigma_y)
         h_disc_nnn_y = np.dot(nlg.inv(u_4), h_yz)
-        h_disc_nnn_x = np.dot(h_xz, u_4)
+        # h_disc_nnn_x = np.dot(h_xz, u_4)
+        h_disc_nnn_x = np.dot(h_yz, u_4)
 
         nnn_x_hopping = x_hopping_matrix(nx, disc_type, core_hopping=False)
         nnn_y_hopping = y_hopping_matrix(nx, disc_type, core_hopping=False)
