@@ -86,7 +86,7 @@ def number_of_sites(nx: int, disc_type='plaq'):
     return len(side_surface_indices(nx, disc_type))
 
 
-def x_hopping_matrix(nx, disc_type='plaq', nnn=False):
+def x_hopping_matrix(nx, disc_type='plaq', core_hopping=True):
     bottom_width, top_width, left_height, right_height = disclination_dimensions(nx, disc_type)
 
     x_hopping_sites = np.zeros(0)
@@ -99,7 +99,7 @@ def x_hopping_matrix(nx, disc_type='plaq', nnn=False):
 
     x_hopping_sites = np.concatenate((x_hopping_sites, np.ones(top_width - 1, dtype=complex)))
 
-    if nnn and disc_type.lower() == 'site':
+    if not core_hopping and disc_type.lower() == 'site':
         x_hopping_sites[bottom_width * (right_height - 1) + top_width - 1] = 0
         x_hopping_sites[bottom_width * (right_height - 1) + top_width] = 0
 
@@ -107,7 +107,7 @@ def x_hopping_matrix(nx, disc_type='plaq', nnn=False):
     return hop_mat.T
 
 
-def y_hopping_matrix(nx, disc_type='plaq', nnn=False):
+def y_hopping_matrix(nx, disc_type='plaq', core_hopping=True):
     bottom_width, top_width, left_height, right_height = disclination_dimensions(nx, disc_type)
 
     y_hopping_sites_1 = np.concatenate((np.ones(bottom_width * (right_height - 1) + top_width, dtype=complex),
@@ -115,7 +115,7 @@ def y_hopping_matrix(nx, disc_type='plaq', nnn=False):
     y_hopping_sites_2 = np.concatenate((np.zeros(bottom_width * right_height, dtype=complex),
                                         np.ones(top_width * (left_height - right_height - 1), dtype=complex)))
 
-    if nnn and disc_type.lower() == 'site':
+    if not core_hopping and disc_type.lower() == 'site':
         y_hopping_sites_1[bottom_width * (right_height - 2) + top_width] = 0
 
     hop_mat = np.diag(y_hopping_sites_1, k=nx) + np.diag(y_hopping_sites_2, k=nx // 2)
@@ -208,24 +208,27 @@ def disclination_hamiltonian_blocks(nx: int, mass: float, phs_mass: float, disc_
         x_hopping = x_hopping_matrix(nx, disc_type)
         h00 += np.kron(x_hopping, h_x) + np.kron(x_hopping, h_x).conj().T
     else:
-        x_hopping = x_hopping_matrix(nx, disc_type, nnn=True)
+        x_hopping = x_hopping_matrix(nx, disc_type, core_hopping=False)
         h00 += np.kron(x_hopping, h_x) + np.kron(x_hopping, h_x).conj().T
 
         # Add cos hoppings to the disclination core
-        core_hopping = x_hopping_matrix(nx, disc_type, nnn=False) - x_hopping_matrix(nx, disc_type, nnn=True)
-        h00 += np.kron(core_hopping, h_core) + np.kron(core_hopping, h_core).conj().T
+        # core_hopping = x_hopping_matrix(nx, disc_type, core_hopping=False)
+        # - x_hopping_matrix(nx, disc_type, core_hopping=True)
+        # h00 += np.kron(core_hopping, np.dot(nlg.inv(u_4), h_core)) \
+        #        + np.kron(core_hopping, np.dot(nlg.inv(u_4), h_core)).conj().T
 
     # Y-Hopping
     if disc_type.lower() == 'plaq':
         y_hopping = y_hopping_matrix(nx, disc_type)
         h00 += np.kron(y_hopping, h_y) + np.kron(y_hopping, h_y).conj().T
     else:
-        y_hopping = y_hopping_matrix(nx, disc_type, nnn=True)
+        y_hopping = y_hopping_matrix(nx, disc_type, core_hopping=False)
         h00 += np.kron(y_hopping, h_y) + np.kron(y_hopping, h_y).conj().T
 
         # Add cos hoppings to the disclination core
-        core_hopping = y_hopping_matrix(nx, disc_type, nnn=False) - y_hopping_matrix(nx, disc_type, nnn=True)
-        h00 += 2 * np.kron(core_hopping, h_core) + 2 * np.kron(core_hopping, h_core).conj().T
+        # core_hopping = y_hopping_matrix(nx, disc_type, core_hopping=False)
+        # - y_hopping_matrix(nx, disc_type, core_hopping=True)
+        # h00 += np.kron(core_hopping, h_core) + np.kron(core_hopping, h_core).conj().T
 
     # Disclination Hopping
     disc_hopping = disclination_hopping_matrix(nx, disc_type)
@@ -238,16 +241,17 @@ def disclination_hamiltonian_blocks(nx: int, mass: float, phs_mass: float, disc_
     if half_sign is None or half_sign == 0:
         h_xz = -1 / 4 * np.kron(gamma_0, sigma_x)
         h_yz = -1 / 4 * np.kron(gamma_0, sigma_y)
-        h_disc_nnn = np.dot(nlg.inv(u_4), h_yz)
+        h_disc_nnn_y = np.dot(nlg.inv(u_4), h_yz)
+        h_disc_nnn_x = np.dot(h_xz, u_4)
 
-        nnn_x_hopping = x_hopping_matrix(nx, disc_type, nnn=True)
-        nnn_y_hopping = y_hopping_matrix(nx, disc_type, nnn=True)
+        nnn_x_hopping = x_hopping_matrix(nx, disc_type, core_hopping=False)
+        nnn_y_hopping = y_hopping_matrix(nx, disc_type, core_hopping=False)
 
         h01 += np.kron(nnn_x_hopping, h_xz) - np.kron(nnn_x_hopping.T, h_xz)
         h01 += np.kron(nnn_y_hopping, h_yz) - np.kron(nnn_y_hopping.T, h_yz)
 
-        h01 += (np.kron(disc_hopping, h_disc_nnn) -
-                np.kron(disc_hopping.T, h_disc_nnn))
+        h01 += (np.kron(disc_hopping, h_disc_nnn_y) -
+                np.kron(disc_hopping.T, h_disc_nnn_x))
 
     return h00, h01
 
@@ -287,6 +291,11 @@ def calculate_disclination_rho(nz: int, nx: int, mass: float, phs_mass: float, d
         evals, evecs = clg.eigh(h)
         evals = evals.get()
         evecs = evecs.get()
+
+        # Clear GPU memory
+        mempool = cp.get_default_memory_pool()
+        mempool.free_all_blocks()
+
     else:
         print('Building Hamiltonian')
         h = disclination_hamiltonian(nz, nx, mass, phs_mass, disc_type, half_sign, spin)
@@ -313,7 +322,6 @@ def calculate_disclination_rho(nz: int, nx: int, mass: float, phs_mass: float, d
 
 
 def defect_free_hamiltonian(nx: int, mass: float, hoti_mass: float):
-
     # if spin is not None:
     #     if spin != 1 and spin != -1 and spin != 0:
     #         raise ValueError('Parameter "spin" must be either -1, 0, or 1')

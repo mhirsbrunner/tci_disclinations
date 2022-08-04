@@ -5,41 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="72ec4185-671d-4b57-afa5-9a1c1269f822" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/data/defect_free_rho.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/open_z_dos.pickle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/figures/charge_density_m_-1.2.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/figures/charge_density_m_-1.2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/figures/charge_per_layer.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/figures/charge_per_layer.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/figures/charge_per_layer_m_-1.2.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/figures/charge_per_layer_m_-1.2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/figures/charge_per_layer_no_disc.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/figures/charge_per_layer_no_disc.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/figures/defect_free_rho.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/figures/defect_free_rho.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/figures/open_z_dos.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/figures/open_z_dos.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/figures/q_vs_m_spinful.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/figures/q_vs_m_spinful.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/figures/q_vs_m_spinless.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/figures/q_vs_m_spinless.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/other.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/tci_disclinations.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/tci_disclinations.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_-2.0_type_plaq_half_0_spin_-1.pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_0.0_type_plaq_half_0_spin_-1.pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/nx_16_nz_16_mass_2.0_type_plaq_half_0_spin_-1.pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/nz_12_nx_12_mass_-2.0_type_plaq_half_1_spin_0.pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/nz_12_nx_12_mass_0.0_type_plaq_half_1_spin_0.pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/nz_12_nx_12_mass_2.0_type_plaq_half_1_spin_0.pickle" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/figures/ed_disclination_rho.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/figures/ed_disclination_rho.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/figures/ed_disclination_rho.png" beforeDir="false" afterPath="$PROJECT_DIR$/figures/ed_disclination_rho.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/figures/ed_disclination_rho_z.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/figures/ed_disclination_rho_z.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/figures/ed_disclination_rho_z.png" beforeDir="false" afterPath="$PROJECT_DIR$/figures/ed_disclination_rho_z.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/figures/q_vs_mass.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/figures/q_vs_mass.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/figures/q_vs_mass.png" beforeDir="false" afterPath="$PROJECT_DIR$/figures/q_vs_mass.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/defect_free.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/defect_free.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/disclination.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/disclination.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/plotting.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/plotting.py" afterDir="false" />
     </list>
@@ -70,12 +40,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "WebServerToolWindowFactoryState": "true",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+  </component>
   <component name="RunManager">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="tci_disclinations" />
@@ -125,6 +96,14 @@
       <workItem from="1658776666806" duration="6475000" />
       <workItem from="1658871239998" duration="10000" />
       <workItem from="1659024266859" duration="9450000" />
+      <workItem from="1659137667149" duration="17000" />
+      <workItem from="1659137694021" duration="50000" />
+      <workItem from="1659467053309" duration="737000" />
+      <workItem from="1659477433656" duration="102000" />
+      <workItem from="1659480544439" duration="793000" />
+      <workItem from="1659481357296" duration="51000" />
+      <workItem from="1659555196929" duration="7103000" />
+      <workItem from="1659563590946" duration="1430000" />
     </task>
     <servers />
   </component>

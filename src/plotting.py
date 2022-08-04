@@ -161,26 +161,31 @@ def disclination_graph(nx: int, disc_type='plaq'):
     return graph, pos
 
 
-def plot_disclination_rho(z_half='bottom', data_fname='ed_disclination_ldos', save=True,
+def plot_disclination_rho(layer_ind=None, z_half='bottom', data_fname='ed_disclination_ldos', save=True,
                           fig_fname='ed_disclination_rho', close_disc=True):
     results, params = utils.load_results(data_fname)
     nz, nx, mass, phs_mass, disc_type, half_sign, spin = params
 
-    if z_half.lower() == 'bottom':
+    if layer_ind is not None:
+        rho = results[layer_ind]
+        layers = 1
+    elif z_half.lower() == 'bottom':
         rho = np.sum(results[:nz // 2], axis=0)
+        layers = nz // 2
     elif z_half.lower() == 'top':
         rho = np.sum(results[nz // 2:], axis=0)
+        layers = nz // 2
     else:
         raise ValueError('Input "half" must specify "bottom" or "top" half of the system over which to sum the '
                          'density of states')
 
     # Subtract background charge and calculate the total charge (mod 8)
     if half_sign is not None and half_sign != 0:
-        data = rho - 2 * (nz // 2)
+        data = rho - 2 * layers
         print(f'Total charge: {data.sum()}')
         print(f'Modded total charge: {(np.abs(rho.sum()) % (1 / 8)) * 8}')
     else:
-        data = rho - 4 * (nz // 2)
+        data = rho - 4 * layers
         print(f'Total charge: {data.sum()}')
         print(f'Modded total charge: {(np.abs(rho.sum()) % (1 / 4)) * 4}')
 
