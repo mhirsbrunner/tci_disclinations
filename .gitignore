@@ -2,8 +2,7 @@
 /.idea
 cc_job.slurm
 cc_run.sh
-/data/cluster_data
-/data/archive
+/data
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

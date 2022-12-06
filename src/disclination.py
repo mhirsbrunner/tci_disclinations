@@ -53,6 +53,30 @@ def disclination_dimensions(nx: int, disc_type='plaq'):
     return bottom_width, top_width, left_height, right_height
 
 
+def ind_to_coord(nx: int, ind: int):
+    if nx % 2 == 0:
+        disc_type = 'plaq'
+    else:
+        disc_type = 'site'
+
+    bottom_width, top_width, left_height, right_height = disclination_dimensions(nx, disc_type=disc_type)
+
+    midpoint_ind = bottom_width * right_height
+
+    if ind < midpoint_ind:
+        x = ind % bottom_width
+        y = ind // bottom_width
+    elif ind > midpoint_ind:
+        temp_ind = ind - midpoint_ind
+        x = temp_ind % top_width
+        y = (temp_ind // top_width) + right_height
+    else:
+        x = 0
+        y = right_height
+
+    return x, y
+
+
 def side_surface_indices(nx: int, disc_type='plaq'):
     """
     Returns a list of ones and zeros where ones indicate that the index corresponds to a surface site
@@ -319,6 +343,46 @@ def calculate_disclination_rho(nz: int, nx: int, mass: float, phs_mass: float, d
         pkl.dump(data, handle)
 
     return rho
+
+
+
+def maissam_bound_charge(nz: int, nx: int, rho: np.ndarray, norb: int):
+    if nx % 2 == 0:
+        disc_type = 'plaq'
+    else:
+        disc_type = 'site'
+
+    bottom_width, top_width, left_height, right_height = disclination_dimensions(nx, disc_type=disc_type)
+
+    weighted_rho = np.copy(rho) - norb
+
+    for ii in range(weighted_rho.shape[-1]):
+        x, y = ind_to_coord(nx, ii)
+        
+        weight = 1
+
+        if y == 0:
+            if x == 0 or x == bottom_width - 1:
+                weight = 1 / 4
+            else:
+                weight = 1 / 2
+        elif y <= right_height - 1:
+            if x == 0 or x == bottom_width - 1:
+                weight = 1 / 2
+        elif y < left_height - 1:
+            if x == 0:
+                weight = 1 / 2
+        elif y == left_height - 1:
+            if x == 0:
+                weight = 1 / 4
+            else:
+                weight = 1 / 2
+
+        weighted_rho[:, ii] *= weight
+
+    return np.sum(weighted_rho[:nz // 2])
+        
+
 
 
 def defect_free_hamiltonian(nx: int, mass: float, hoti_mass: float):

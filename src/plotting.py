@@ -4,6 +4,7 @@ import matplotlib.ticker as plticker
 
 import networkx as netx
 import src.utils as utils
+import src.disclination as disc
 
 import numpy as np
 from numpy import sin, cos, pi
@@ -174,10 +175,12 @@ def plot_disclination_rho(layer_ind=None, z_half='bottom', data_fname='ed_discli
         layers = nz // 2
     elif z_half.lower() == 'top':
         rho = np.sum(results[nz // 2:], axis=0)
-        layers = nz // 2
+        layers = nz // 2 + 1
     else:
         raise ValueError('Input "half" must specify "bottom" or "top" half of the system over which to sum the '
                          'density of states')
+
+    print(rho)
 
     # Subtract background charge and calculate the total charge (mod 8)
     if half_sign is not None and half_sign != 0:
@@ -304,9 +307,11 @@ def plot_q_vs_mass(nz: int, nx: int, disc_type, half_sign, spinful: bool, data_f
         temp_nz, temp_nx, mass, phs_mass, temp_disc_type, temp_half_sign, spin = params
 
         if temp_nz != nz or temp_nx != nx or temp_disc_type != disc_type or temp_half_sign != half_sign:
+            print('skip')
             continue
 
-        total_charge = np.sum(rho[:nz // 2] - norb)
+        # total_charge = np.sum(rho[:nz // 2] - norb)
+        total_charge = disc.maissam_bound_charge(nz, nx, rho, norb)
 
         if spinful:
             if spin is None or spin == 0:
