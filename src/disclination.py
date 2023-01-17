@@ -440,14 +440,14 @@ def defect_free_hamiltonian(nx: int, mass: float, phs_mass: float, hoti_mass: fl
             for kk in range(nx):
                 h[ii, jj, kk, :, ii, jj, kk, :] += h_onsite
 
-            h[0, ii, jj, :, 0, ii, jj, :] += x_hoti_mass
-            h[nx - 1, ii, jj, :, nx - 1, ii, jj, :] -= x_hoti_mass
+            h[0, ii, jj, :, 0, ii, jj, :] += x_hoti_mass + h_phs_mass
+            h[nx - 1, ii, jj, :, nx - 1, ii, jj, :] += -x_hoti_mass + h_phs_mass
 
-            h[ii, 0, jj, :, ii, 0, jj, :] += y_hoti_mass
-            h[ii, nx - 1, jj, :, ii, nx - 1, jj, :] -= y_hoti_mass
+            h[ii, 0, jj, :, ii, 0, jj, :] += y_hoti_mass + h_phs_mass
+            h[ii, nx - 1, jj, :, ii, nx - 1, jj, :] += -y_hoti_mass + h_phs_mass
 
             h[ii, jj, 0, :, ii, jj, 0, :] += z_hoti_mass + h_phs_mass
-            h[ii, jj, nx - 1, :, ii, jj, nx - 1, :] -= z_hoti_mass + h_phs_mass
+            h[ii, jj, nx - 1, :, ii, jj, nx - 1, :] += -z_hoti_mass + h_phs_mass
 
     # X-Hopping
     for ii in range(nx - 1):
