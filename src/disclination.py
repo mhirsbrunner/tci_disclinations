@@ -26,6 +26,8 @@ gamma_y = np.kron(sigma_y, sigma_0)
 gamma_z = np.kron(sigma_z, sigma_z)
 gamma_5 = np.kron(sigma_z, sigma_y)
 
+gamma_xy = -1j * np.dot(gamma_x, gamma_y)
+
 
 # Disclination Functions
 def disclination_dimensions(nx: int, disc_type='plaq'):
@@ -345,7 +347,6 @@ def calculate_disclination_rho(nz: int, nx: int, mass: float, phs_mass: float, d
     return rho
 
 
-
 def maissam_bound_charge(nz: int, nx: int, rho: np.ndarray, norb: int):
     if nx % 2 == 0:
         disc_type = 'plaq'
@@ -381,11 +382,8 @@ def maissam_bound_charge(nz: int, nx: int, rho: np.ndarray, norb: int):
         weighted_rho[:, ii] *= weight
 
     return np.sum(weighted_rho[:nz // 2])
-        
 
-
-
-def defect_free_hamiltonian(nx: int, mass: float, hoti_mass: float):
+def defect_free_hamiltonian(nx: int, mass: float, phs_mass: float, hoti_mass: float):
     # if spin is not None:
     #     if spin != 1 and spin != -1 and spin != 0:
     #         raise ValueError('Parameter "spin" must be either -1, 0, or 1')
@@ -399,6 +397,7 @@ def defect_free_hamiltonian(nx: int, mass: float, hoti_mass: float):
     #                                   + spin * np.kron(np.identity(4, dtype=complex), sigma_0)))
 
     h_onsite = mass * np.kron(gamma_0, sigma_z)
+    h_phs_mass = phs_mass * np.kron(gamma_5, sigma_0)
     x_hoti_mass = hoti_mass * np.kron(gamma_0, sigma_x)
     y_hoti_mass = hoti_mass * np.kron(gamma_0, sigma_y)
     z_hoti_mass = hoti_mass * np.kron(gamma_5, sigma_0)
@@ -416,25 +415,39 @@ def defect_free_hamiltonian(nx: int, mass: float, hoti_mass: float):
     h = np.zeros((nx, nx, nx, norb, nx, nx, nx, norb), dtype=complex)
 
     # Onsite Hamiltonian
+    # for ii in range(nx):
+    #     for jj in range(nx):
+    #         for kk in range(nx):
+    #             h[ii, jj, kk, :, ii, jj, kk, :] += h_onsite
+
+    #             if ii == 0:
+    #                 h[ii, jj, kk, :, ii, jj, kk, :] += x_hoti_mass
+    #             elif ii == nx - 1:
+    #                 h[ii, jj, kk, :, ii, jj, kk, :] -= x_hoti_mass
+
+    #             if jj == 0:
+    #                 h[ii, jj, kk, :, ii, jj, kk, :] += y_hoti_mass
+    #             elif jj == nx - 1:
+    #                 h[ii, jj, kk, :, ii, jj, kk, :] -= y_hoti_mass
+
+    #             if kk == 0:
+    #                 h[ii, jj, kk, :, ii, jj, kk, :] += z_hoti_mass
+    #             elif kk == nx - 1:
+    #                 h[ii, jj, kk, :, ii, jj, kk, :] -= z_hoti_mass
+
     for ii in range(nx):
         for jj in range(nx):
             for kk in range(nx):
                 h[ii, jj, kk, :, ii, jj, kk, :] += h_onsite
 
-                if ii == 0:
-                    h[ii, jj, kk, :, ii, jj, kk, :] += x_hoti_mass
-                elif ii == nx - 1:
-                    h[ii, jj, kk, :, ii, jj, kk, :] -= x_hoti_mass
+            h[0, ii, jj, :, 0, ii, jj, :] += x_hoti_mass
+            h[nx - 1, ii, jj, :, nx - 1, ii, jj, :] -= x_hoti_mass
 
-                if jj == 0:
-                    h[ii, jj, kk, :, ii, jj, kk, :] += y_hoti_mass
-                elif jj == nx - 1:
-                    h[ii, jj, kk, :, ii, jj, kk, :] -= y_hoti_mass
+            h[ii, 0, jj, :, ii, 0, jj, :] += y_hoti_mass
+            h[ii, nx - 1, jj, :, ii, nx - 1, jj, :] -= y_hoti_mass
 
-                if kk == 0:
-                    h[ii, jj, kk, :, ii, jj, kk, :] += z_hoti_mass
-                elif kk == nx - 1:
-                    h[ii, jj, kk, :, ii, jj, kk, :] -= z_hoti_mass
+            h[ii, jj, 0, :, ii, jj, 0, :] += z_hoti_mass + h_phs_mass
+            h[ii, jj, nx - 1, :, ii, jj, nx - 1, :] -= z_hoti_mass + h_phs_mass
 
     # X-Hopping
     for ii in range(nx - 1):
@@ -457,7 +470,6 @@ def defect_free_hamiltonian(nx: int, mass: float, hoti_mass: float):
                 h[ii, jj, kk + 1, :, ii, jj, kk, :] += h_z
                 h[ii, jj, kk, :, ii, jj, kk + 1, :] += h_z.conj().T
 
-    # Need to work out signs and complex conjugations here. Missing half the terms currently
     # XZ-Hopping
     for ii in range(nx - 1):
         for jj in range(nx):
@@ -478,6 +490,20 @@ def defect_free_hamiltonian(nx: int, mass: float, hoti_mass: float):
                 h[ii, jj + 1, kk, :, ii, jj, kk + 1, :] -= h_yz
                 h[ii, jj, kk + 1, :, ii, jj + 1, kk, :] -= h_yz.conj().T
 
+    h = np.transpose(h, (2, 1, 0, 3, 6, 5, 4, 7))
+    return np.reshape(h, (norb * nx * nx * nx, norb * nx * nx * nx))
+
+
+def rotation_matrix(nx: int):
+    norb = 8
+    h = np.zeros((nx, nx, nx, norb, nx, nx, nx, norb), dtype=complex)
+    
+    for ii in range(nx):
+        for jj in range(nx):
+            for kk in range(nx):
+                h[ii, jj, kk, :, nx - 1 - jj, ii, kk, :] += slg.expm(1j * pi / 4 * (np.kron(gamma_xy, sigma_0) + 1 * np.kron(np.identity(4, dtype=complex), sigma_z)))
+
+    h = np.transpose(h, (2, 1, 0, 3, 6, 5, 4, 7))
     return np.reshape(h, (norb * nx * nx * nx, norb * nx * nx * nx))
 
 
