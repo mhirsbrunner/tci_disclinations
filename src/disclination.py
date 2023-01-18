@@ -383,7 +383,7 @@ def maissam_bound_charge(nz: int, nx: int, rho: np.ndarray, norb: int):
 
     return np.sum(weighted_rho[:nz // 2])
 
-def defect_free_hamiltonian(nx: int, mass: float, phs_mass: float, hoti_mass: float):
+def defect_free_hamiltonian(nx: int, nz: int, mass: float, phs_mass: float, hoti_mass: float):
     # if spin is not None:
     #     if spin != 1 and spin != -1 and spin != 0:
     #         raise ValueError('Parameter "spin" must be either -1, 0, or 1')
@@ -412,7 +412,7 @@ def defect_free_hamiltonian(nx: int, mass: float, phs_mass: float, hoti_mass: fl
     norb = 8
 
     # Arrange blocks into full Hamiltonian
-    h = np.zeros((nx, nx, nx, norb, nx, nx, nx, norb), dtype=complex)
+    h = np.zeros((nx, nx, nz, norb, nx, nx, nz, norb), dtype=complex)
 
     # Onsite Hamiltonian
     # for ii in range(nx):
@@ -437,7 +437,7 @@ def defect_free_hamiltonian(nx: int, mass: float, phs_mass: float, hoti_mass: fl
 
     for ii in range(nx):
         for jj in range(nx):
-            for kk in range(nx):
+            for kk in range(nz):
                 h[ii, jj, kk, :, ii, jj, kk, :] += h_onsite
 
             h[0, ii, jj, :, 0, ii, jj, :] += x_hoti_mass + h_phs_mass
@@ -447,33 +447,33 @@ def defect_free_hamiltonian(nx: int, mass: float, phs_mass: float, hoti_mass: fl
             h[ii, nx - 1, jj, :, ii, nx - 1, jj, :] += -y_hoti_mass + h_phs_mass
 
             h[ii, jj, 0, :, ii, jj, 0, :] += z_hoti_mass + h_phs_mass
-            h[ii, jj, nx - 1, :, ii, jj, nx - 1, :] += -z_hoti_mass + h_phs_mass
+            h[ii, jj, nz - 1, :, ii, jj, nz - 1, :] += -z_hoti_mass + h_phs_mass
 
     # X-Hopping
     for ii in range(nx - 1):
         for jj in range(nx):
-            for kk in range(nx):
+            for kk in range(nz):
                 h[ii + 1, jj, kk, :, ii, jj, kk, :] += h_x
                 h[ii, jj, kk, :, ii + 1, jj, kk, :] += h_x.conj().T
 
     # Y-Hopping
     for ii in range(nx):
         for jj in range(nx - 1):
-            for kk in range(nx):
+            for kk in range(nz):
                 h[ii, jj + 1, kk, :, ii, jj, kk, :] += h_y
                 h[ii, jj, kk, :, ii, jj + 1, kk, :] += h_y.conj().T
 
     # Z-Hopping
     for ii in range(nx):
         for jj in range(nx):
-            for kk in range(nx - 1):
+            for kk in range(nz - 1):
                 h[ii, jj, kk + 1, :, ii, jj, kk, :] += h_z
                 h[ii, jj, kk, :, ii, jj, kk + 1, :] += h_z.conj().T
 
     # XZ-Hopping
     for ii in range(nx - 1):
         for jj in range(nx):
-            for kk in range(nx - 1):
+            for kk in range(nz - 1):
                 h[ii + 1, jj, kk + 1, :, ii, jj, kk, :] += h_xz
                 h[ii, jj, kk, :, ii + 1, jj, kk + 1, :] += h_xz.conj().T
 
@@ -483,7 +483,7 @@ def defect_free_hamiltonian(nx: int, mass: float, phs_mass: float, hoti_mass: fl
     # YZ-Hopping
     for ii in range(nx):
         for jj in range(nx - 1):
-            for kk in range(nx - 1):
+            for kk in range(nz - 1):
                 h[ii, jj + 1, kk + 1, :, ii, jj, kk, :] += h_yz
                 h[ii, jj, kk, :, ii, jj + 1, kk + 1, :] += h_yz.conj().T
 
@@ -491,25 +491,25 @@ def defect_free_hamiltonian(nx: int, mass: float, phs_mass: float, hoti_mass: fl
                 h[ii, jj, kk + 1, :, ii, jj + 1, kk, :] -= h_yz.conj().T
 
     h = np.transpose(h, (2, 1, 0, 3, 6, 5, 4, 7))
-    return np.reshape(h, (norb * nx * nx * nx, norb * nx * nx * nx))
+    return np.reshape(h, (norb * nz * nx * nx, norb * nz * nx * nx))
 
 
-def rotation_matrix(nx: int):
+def rotation_matrix(nx: int, nz: int):
     norb = 8
-    h = np.zeros((nx, nx, nx, norb, nx, nx, nx, norb), dtype=complex)
+    h = np.zeros((nx, nx, nz, norb, nx, nx, nz, norb), dtype=complex)
     
     for ii in range(nx):
         for jj in range(nx):
-            for kk in range(nx):
+            for kk in range(nz):
                 h[ii, jj, kk, :, nx - 1 - jj, ii, kk, :] += slg.expm(1j * pi / 4 * (np.kron(gamma_xy, sigma_0) + 1 * np.kron(np.identity(4, dtype=complex), sigma_z)))
 
     h = np.transpose(h, (2, 1, 0, 3, 6, 5, 4, 7))
-    return np.reshape(h, (norb * nx * nx * nx, norb * nx * nx * nx))
+    return np.reshape(h, (norb * nz * nx * nx, norb * nz * nx * nx))
 
 
 def calculate_defect_free_rho(nx: int, mass: float, hoti_mass: float, use_gpu=True):
     print('Building Hamiltonian')
-    h = defect_free_hamiltonian(nx, mass, hoti_mass)
+    h = defect_free_hamiltonian(nx, nx, mass, hoti_mass)
 
     norb = 8
 
